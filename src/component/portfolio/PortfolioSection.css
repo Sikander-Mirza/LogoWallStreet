@@ -1,0 +1,11 @@
+/* Base state: image sits at the top */
+.portfolio-scroll-img {
+  transform: translateY(0);
+  transform-origin: top;
+  transition: transform 2.5s linear;
+}
+
+/* On hover of the card, we move the image up to reveal the bottom */
+.portfolio-card-hover:hover .portfolio-scroll-img {
+  transform: translateY(-80%); /* adjust -40% / -80% based on how tall your screenshots are */
+}

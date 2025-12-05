@@ -1,0 +1,57 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import logo from "../../assets/images/logo.png";
+import MenuItems from "./MenuItems.jsx";
+import Button from "../button/Button";
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [showServices, setShowServices] = useState(false);
+
+  const toggleServices = () => setShowServices(!showServices);
+
+  return (
+    <nav className="bg-white dark:bg-gray-900 fixed top-4 left-1/2 -translate-x-1/2 z-20 w-[92%] md:w-[90%] lg:w-[85%] border border-gray-200 dark:border-gray-700 rounded-xl shadow-md">
+      <div className="flex items-center justify-between px-4 py-2 md:px-6">
+        {/* Logo */}
+        <Link to="/">
+          <img src={logo} alt="Logo" className="w-[120px] cursor-pointer" />
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center space-x-8">
+          <MenuItems showServices={showServices} toggleServices={toggleServices} />
+        </div>
+
+        {/* Right side */}
+        <div className="flex items-center space-x-3">
+          <div className="hidden md:block">
+            <Button text="Get Started" />
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100"
+          >
+            <i
+              className={`ri-${isOpen ? "close" : "menu"}-line text-2xl text-gray-700`}
+            ></i>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div  className="md:hidden bg-white border-t border-gray-200 px-4 py-3 space-y-2 rounded-b-xl">
+          <MenuItems
+            isMobile={true}
+            showServices={showServices}
+            toggleServices={toggleServices}
+          />
+          <Button text="Get Started" className="w-full" />
+        </div>
+      )}
+    </nav>
+  );
+}

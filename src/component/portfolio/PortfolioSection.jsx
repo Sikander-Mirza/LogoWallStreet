@@ -1,0 +1,167 @@
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+
+import logo1 from "../../assets/images/logo1.jpeg";
+import logo2 from "../../assets/images/logo2.jpeg";
+import logo3 from "../../assets/images/logo3.jpeg";
+import web1 from "../../assets/images/web1.jpg";
+import web2 from "../../assets/images/web2.jpg";
+import web3 from "../../assets/images/web3.jpg";
+
+import "./PortfolioSection.css";
+
+const tabs = [
+  { id: "logo", label: "Logo Design" },
+  { id: "web", label: "Website Development" },
+  { id: "mobile", label: "Mobile App" },
+  { id: "ecom", label: "E‑Commerce Website" },
+];
+
+const portfolioData = {
+  logo: [
+    { id: 1, title: "Embrys Roofing", image: logo1 },
+    { id: 2, title: "Angel Canino", image: logo2 },
+    { id: 3, title: "Vidworks", image: logo3 },
+  ],
+  web: [
+    { id: 1, title: "Agency Website", image: web1, tall: true },
+    { id: 2, title: "SaaS Landing", image: web2, tall: true },
+    { id: 3, title: "Portfolio Site", image: web3, tall: true },
+  ],
+  mobile: [
+    { id: 1, title: "Finance App", image: logo1 },
+    { id: 2, title: "Fitness App", image: logo2 },
+    { id: 3, title: "Food Delivery", image: logo3 },
+  ],
+  ecom: [
+    { id: 1, title: "Fashion Store", image: web1, tall: true },
+    { id: 2, title: "Gadgets Shop", image: web2, tall: true },
+    { id: 3, title: "Cosmetics", image: web3, tall: true },
+  ],
+};
+
+export default function PortfolioSection() {
+  const [activeTab, setActiveTab] = useState("logo");
+  const items = portfolioData[activeTab] ?? [];
+
+  return (
+    <section className="bg-white py-16 md:py-20 mt-20">
+      <div className="max-w-7xl mx-auto px-4 lg:px-10">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-2">
+              <span className="h-[2px] w-10 bg-orange-500" />
+              <span className="text-xs font-semibold tracking-[0.25em] text-orange-500 uppercase">
+                Portfolio
+              </span>
+            </div>
+
+            <h2
+              className="text-3xl md:text-4xl font-bold text-slate-900"
+              style={{ fontFamily: "var(--font-Playfair)" }}
+            >
+              Our Portfolio
+            </h2>
+            <p
+              className="mt-3 text-sm md:text-base text-slate-600"
+              style={{ fontFamily: "var(--font-Poppins)" }}
+            >
+              Looking to expand your business? Our agency offers a range of
+              portfolio options tailored to your needs and budget. Whether
+              you’re just starting out or aiming to boost your online presence,
+              our team has the perfect strategy for you. Explore our work
+              below:
+            </p>
+          </div>
+
+         
+        </div>
+
+        {/* Tabs – light pill style */}
+        <div className="mb-8">
+          <div className="inline-flex w-full md:w-auto rounded-full bg-slate-100 border border-slate-200 p-1 overflow-x-auto scrollbar-hide">
+            {tabs.map((tab) => {
+              const isActive = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  role="tab"
+                  aria-selected={isActive}
+                  className={[
+                    "whitespace-nowrap px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-full transition-all",
+                    isActive
+                      ? "bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-md"
+                      : "text-slate-700 hover:bg-white",
+                  ].join(" ")}
+                  style={{ fontFamily: "var(--font-Poppins)" }}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Grid */}
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {items.map((item) => (
+            <PortfolioCard
+              key={item.id}
+              title={item.title}
+              image={item.image}
+              tall={item.tall}
+              isScrollingTab={activeTab === "web" || activeTab === "ecom"}
+            />
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* Single card – light theme, no button */
+function PortfolioCard({ title, image, tall, isScrollingTab }) {
+  const enableScrollEffect = tall && isScrollingTab;
+
+  return (
+    <div className="portfolio-card-hover group relative rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-[0_15px_35px_rgba(15,23,42,0.08)] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(15,23,42,0.15)]">
+      {/* Image wrapper */}
+      <div
+        className={[
+          "relative overflow-hidden bg-slate-100",
+          enableScrollEffect ? "h-64" : "h-64 md:h-72",
+        ].join(" ")}
+      >
+        {enableScrollEffect ? (
+          // long website screenshot: scroll on hover using CSS
+          <img
+            src={image}
+            alt={title}
+            className="portfolio-scroll-img w-full h-auto object-cover"
+          />
+        ) : (
+          // normal image: simple zoom on hover
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+        )}
+
+        {/* soft top & bottom gradients for readability */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/40 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-black/10 to-transparent" />
+      </div>
+
+      
+    </div>
+  );
+}
