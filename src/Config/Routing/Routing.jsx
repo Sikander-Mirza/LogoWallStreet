@@ -8,6 +8,9 @@ import Pricing from "../../pages/Pricing/Pricing";
 import Portfolio from "../../pages/Portfolio/Portfolio"
 import Review from '../../pages/Review/review';
 import WebDevelopment from '../../pages/WebDevelopment/WebDevelopment';
+import Ecommerce from '../../pages/Ecommerce/Ecommerce';
+import Branding from '../../pages/Branding/Branding';
+import SEO from "../../pages/SEO/Seo.jsx"
 function Routing() {
   return (
     <Router>
@@ -20,7 +23,9 @@ function Routing() {
         <Route path="/portfolio" element={<Portfolio/>} />
         <Route path="/review" element={<Review/>} />
         <Route path="/web-design" element={<WebDevelopment/>} />
-
+        <Route path="/ecommerce" element={<Ecommerce/>} />
+        <Route path="/branding" element={<Branding/>} />
+        <Route path="/SEO" element={<SEO/>} />
       </Routes>
     </Router>
   )
