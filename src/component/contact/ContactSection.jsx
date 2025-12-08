@@ -49,10 +49,10 @@ export default function ContactSection() {
           </div>
 
           <div className="hidden md:flex flex-col items-end text-xs text-slate-500">
-            <span>Average response time</span>
+            <span>Average Resposnse Time</span>
             <span className="mt-1 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 border border-slate-200 shadow-sm">
               <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Under 24 hours</span>
+              <span>Under 24 Hours</span>
             </span>
           </div>
         </div>
@@ -290,7 +290,7 @@ function ContactForm() {
           style={{ fontFamily: "var(--font-Poppins)" }}
         >
           <Send className="h-4 w-4" />
-          <span>Submit request</span>
+          <span>Submit</span>
         </button>
         <p className="text-[11px] text-slate-500">
           We respect your privacy. Your information is kept confidential and
