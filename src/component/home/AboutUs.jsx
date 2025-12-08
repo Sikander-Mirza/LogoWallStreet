@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion';
 import HeroHeading from '../others/Heading';
 import AboutImg from "../../assets/images/about-single.PNG";
-import counterBG from "../../assets/images/mask-2.PNG";
+import counterBG from "../../assets/images/mask-2.png";
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 
