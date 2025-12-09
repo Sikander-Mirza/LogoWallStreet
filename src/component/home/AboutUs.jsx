@@ -1,26 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import HeroHeading from "../others/Heading";
 import AboutImg from "../../assets/images/about-single.PNG";
 import counterBG from "../../assets/images/mask-2.png";
 import CountUp from "react-countup";
-import { useInView } from "react-intersection-observer";
 
 function AboutUs() {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.3,
-  });
-
-  const [shouldAnimate, setShouldAnimate] = useState(false);
-
-  // when the section is in view on the client, trigger animation
-  useEffect(() => {
-    if (inView) {
-      setShouldAnimate(true);
-    }
-  }, [inView]);
-
   const textVariant = {
     hidden: { opacity: 0, y: 40 },
     visible: {
@@ -40,17 +25,15 @@ function AboutUs() {
   };
 
   return (
-    <section
-      className="py-6 sm:py-10 md:py-14 lg:py-16 xl:py-20"
-      ref={ref}
-    >
+    <section className="py-6 sm:py-10 md:py-14 lg:py-16 xl:py-20">
       <div className="max-w-7xl mx-auto grid items-center grid-cols-1 md:grid-cols-2 gap-6 px-6 md:px-10 lg:px-16">
         {/* LEFT IMAGE + COUNTER */}
         <motion.div
           className="flex flex-col justify-center items-center"
           variants={imageVariant}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
         >
           <img
             className="w-[500px] md:w-[580px] lg:w-[530px] object-contain translate-y-4 md:translate-y-8"
@@ -58,44 +41,43 @@ function AboutUs() {
             alt="banner image"
           />
 
-          {/* Counter appears only after we decide to animate */}
-          {shouldAnimate && (
-            <div
-              className="
-                relative
-                left-4 bottom-4
-                sm:left-6 sm:bottom-6
-                md:left-10 md:bottom-10
-                lg:left-[120px] lg:bottom-[80px]
-                bg-contain bg-center bg-no-repeat
-                w-[160px] h-[160px]
-                flex flex-col items-center justify-center
-              "
-              style={{ backgroundImage: `url(${counterBG})` }}
+          <div
+            className="
+              relative
+              left-4 bottom-4
+              sm:left-6 sm:bottom-6
+              md:left-10 md:bottom-10
+              lg:left-[120px] lg:bottom-[80px]
+              bg-contain bg-center bg-no-repeat
+              w-[160px] h-[160px]
+              flex flex-col items-center justify-center
+            "
+            style={{ backgroundImage: `url(${counterBG})` }}
+          >
+            <CountUp
+              start={0}
+              end={100}
+              duration={2.5}
+              separator=","
+              enableScrollSpy
+              scrollSpyOnce
             >
-              <CountUp
-                key={shouldAnimate ? "count-100" : "count-0"} // force re-mount when shouldAnimate becomes true
-                start={0}
-                end={100}
-                duration={2.5}
-              >
-                {({ countUpRef }) => (
-                  <h2
-                    style={{ fontFamily: "var(--font-Playfair)" }}
-                    className="text-[30px] md:text-[40px] font-bold text-white"
-                  >
-                    <span ref={countUpRef} />+
-                  </h2>
-                )}
-              </CountUp>
-              <p
-                style={{ fontFamily: "var(--font-Poppins)" }}
-                className="text-[15px] text-white"
-              >
-                Happy Clients
-              </p>
-            </div>
-          )}
+              {({ countUpRef }) => (
+                <h2
+                  style={{ fontFamily: "var(--font-Playfair)" }}
+                  className="text-[30px] md:text-[40px] font-bold text-white"
+                >
+                  <span ref={countUpRef} />+
+                </h2>
+              )}
+            </CountUp>
+            <p
+              style={{ fontFamily: "var(--font-Poppins)" }}
+              className="text-[15px] text-white"
+            >
+              Happy Clients
+            </p>
+          </div>
         </motion.div>
 
         {/* RIGHT CONTENT */}
@@ -103,7 +85,8 @@ function AboutUs() {
           className="py-4 lg:pl-4"
           variants={textVariant}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
         >
           <HeroHeading
             preTitle="About the Logo Wall Street LLC"
