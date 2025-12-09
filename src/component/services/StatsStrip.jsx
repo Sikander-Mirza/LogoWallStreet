@@ -6,33 +6,34 @@ import {
   Award,
   UserCheck,
 } from "lucide-react";
+import CountUp from "react-countup";
 
 const stats = [
   {
     id: 1,
     label: "Trusted Clients",
-    value: "1,485",
+    value: 1485,
     suffix: "+",
     icon: Users,
   },
   {
     id: 2,
     label: "Projects Completed",
-    value: "3,452",
+    value: 3452,
     suffix: "+",
     icon: MonitorSmartphone,
   },
   {
     id: 3,
     label: "Years of Experience",
-    value: "25",
+    value: 25,
     suffix: "+",
     icon: Award,
   },
   {
     id: 4,
     label: "Professional Team",
-    value: "75",
+    value: 75,
     suffix: "+",
     icon: UserCheck,
   },
@@ -72,7 +73,7 @@ export default function StatsStrip() {
   );
 }
 
-function StatItem({ stat, index }) {
+function StatItem({ stat }) {
   const Icon = stat.icon;
 
   return (
@@ -92,13 +93,20 @@ function StatItem({ stat, index }) {
         </div>
       </div>
 
-      {/* value */}
+      {/* value with CountUp */}
       <div className="relative">
         <p
           className="text-3xl md:text-4xl font-bold tracking-tight text-white"
           style={{ fontFamily: "var(--font-Poppins)" }}
         >
-          {stat.value}
+          <CountUp
+            start={0}
+            end={stat.value}
+            duration={2}
+            separator=","
+            enableScrollSpy
+            scrollSpyOnce
+          />
           <span className="text-orange-400 text-2xl align-top ml-1">
             {stat.suffix}
           </span>

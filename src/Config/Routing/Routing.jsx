@@ -15,6 +15,7 @@ import Logo from '../../pages/Logo Design/Logo.jsx';
 import AppDev from '../../pages/App Dev/AppDev.jsx';
 import Illustration from '../../pages/illustration/Illustration.jsx';
 import VideoAnim from '../../pages/VideoAnimation/VideoAnim.jsx';
+import CopyWriting from '../../pages/CopyWriting/CopyWriting.jsx';
 function Routing() {
   return (
     <Router>
@@ -34,6 +35,7 @@ function Routing() {
         <Route path="/App-Dev" element={<AppDev/>} />
         <Route path="/Illustration" element={<Illustration/>} />
         <Route path="/VideoAnimation" element={<VideoAnim/>} />
+        <Route path="/copywriting" element={<CopyWriting/>} />
       </Routes>
     </Router>
   )

@@ -2,10 +2,15 @@ import React from "react";
 import HeroSection from "../../component/about/HeroSection";
 import TestimonialSec from "../../component/home/TestimonialSec";
 import WorkingProcess from "../../component/services/WorkingProcess";
-import ShowCase from "../../component//branding/ShowCase";
+import ShowCase from "../../component/Copy Writing/ShowCase";
 import StatsStrip from "../../component/services/StatsStrip";
-
-function Branding() {
+import {
+    CalendarCheck2,
+    Users,
+    MessageSquare,
+    Rocket,
+} from "lucide-react";
+function CopyWriting() {
 
     //     const customSteps = [
     //   { id: 1, title: "Discovery", description: "We learn about your brand.", icon: CalendarCheck2 },
@@ -16,9 +21,9 @@ function Branding() {
 
     return <div>
         <HeroSection
-            title="Branding"
-            description="We have the expertise and experience to offer outstanding results, from responsive design and user experience optimization to backend programming and content management system integration"
-            breadcrumbLabel="Branding"
+            title="Copy Writing"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+            breadcrumbLabel="Copy Writing"
         />
 
 
@@ -33,4 +38,4 @@ function Branding() {
     </div>;
 }
 
-export default Branding;
+export default CopyWriting;

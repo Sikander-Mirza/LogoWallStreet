@@ -17,6 +17,7 @@ const menuLinks = [
       { name: "Logo Design", to: "/Logo-design", desc: "Keep your website running smoothly." },
       { name: "Illustration", to: "/illustration", desc: "Keep your website running smoothly." },
       { name: "Video Animation", to: "/VideoAnimation", desc: "Keep your website running smoothly." },
+      { name: "Copy Writing", to: "/CopyWriting", desc: "Keep your website running smoothly." },
     ],
   },
   { name: "Pricing", to: "/pricing" },
