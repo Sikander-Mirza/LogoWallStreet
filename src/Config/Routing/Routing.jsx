@@ -11,6 +11,10 @@ import WebDevelopment from '../../pages/WebDevelopment/WebDevelopment';
 import Ecommerce from '../../pages/Ecommerce/Ecommerce';
 import Branding from '../../pages/Branding/Branding';
 import SEO from "../../pages/SEO/Seo.jsx"
+import Logo from '../../pages/Logo Design/Logo.jsx';
+import AppDev from '../../pages/App Dev/AppDev.jsx';
+import Illustration from '../../pages/illustration/Illustration.jsx';
+import VideoAnim from '../../pages/VideoAnimation/VideoAnim.jsx';
 function Routing() {
   return (
     <Router>
@@ -26,6 +30,10 @@ function Routing() {
         <Route path="/ecommerce" element={<Ecommerce/>} />
         <Route path="/branding" element={<Branding/>} />
         <Route path="/SEO" element={<SEO/>} />
+        <Route path="/Logo-design" element={<Logo/>} />
+        <Route path="/App-Dev" element={<AppDev/>} />
+        <Route path="/Illustration" element={<Illustration/>} />
+        <Route path="/VideoAnimation" element={<VideoAnim/>} />
       </Routes>
     </Router>
   )
