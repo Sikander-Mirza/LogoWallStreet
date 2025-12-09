@@ -19,8 +19,8 @@ function Home() {
     <HeroSec />
     <CardsSection />
     <AboutUs />
-    <StatsStrip/>
-    {/* <CounterSec /> */}
+    {/* <StatsStrip/> */}
+    <CounterSec />
     <OurServices />
     <WhyChoose />
     <TwodLogo />
