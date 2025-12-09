@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import HeroHeading from '../others/Heading';
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import HeroHeading from "../others/Heading";
 import AboutImg from "../../assets/images/about-single.PNG";
 import counterBG from "../../assets/images/mask-2.png";
-import CountUp from 'react-countup';
-import { useInView } from 'react-intersection-observer';
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 
 function AboutUs() {
   const { ref, inView } = useInView({
@@ -12,25 +12,38 @@ function AboutUs() {
     threshold: 0.3,
   });
 
-  const [hasMounted, setHasMounted] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
 
+  // when the section is in view on the client, trigger animation
   useEffect(() => {
-    // ensures we are on the client (no SSR mismatch on Vercel)
-    setHasMounted(true);
-  }, []);
+    if (inView) {
+      setShouldAnimate(true);
+    }
+  }, [inView]);
 
   const textVariant = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   const imageVariant = {
     hidden: { opacity: 0, x: 50 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1, ease: "easeOut" },
+    },
   };
 
   return (
-    <section className="py-6 sm:py-10 md:py-14 lg:py-16 xl:py-20" ref={ref}>
+    <section
+      className="py-6 sm:py-10 md:py-14 lg:py-16 xl:py-20"
+      ref={ref}
+    >
       <div className="max-w-7xl mx-auto grid items-center grid-cols-1 md:grid-cols-2 gap-6 px-6 md:px-10 lg:px-16">
         {/* LEFT IMAGE + COUNTER */}
         <motion.div
@@ -45,8 +58,8 @@ function AboutUs() {
             alt="banner image"
           />
 
-          {/* render counter only on client AND when inView */}
-          {hasMounted && inView && (
+          {/* Counter appears only after we decide to animate */}
+          {shouldAnimate && (
             <div
               className="
                 relative
@@ -60,7 +73,12 @@ function AboutUs() {
               "
               style={{ backgroundImage: `url(${counterBG})` }}
             >
-              <CountUp start={0} end={100} duration={2.5} delay={0.5}>
+              <CountUp
+                key={shouldAnimate ? "count-100" : "count-0"} // force re-mount when shouldAnimate becomes true
+                start={0}
+                end={100}
+                duration={2.5}
+              >
                 {({ countUpRef }) => (
                   <h2
                     style={{ fontFamily: "var(--font-Playfair)" }}

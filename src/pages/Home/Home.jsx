@@ -12,13 +12,15 @@ import MarketingCollateral from "../../component/home/MarketingCollateral";
 import OurProject from "../../component/home/OurProject";
 import PricingSec from "../../component/home/PricingSec";
 import TestimonialSec from "../../component/home/TestimonialSec";
+import StatsStrip from "../../component/services/StatsStrip";
 
 function Home() {
   return <div>
     <HeroSec />
     <CardsSection />
     <AboutUs />
-    <CounterSec />
+    <StatsStrip/>
+    {/* <CounterSec /> */}
     <OurServices />
     <WhyChoose />
     <TwodLogo />
