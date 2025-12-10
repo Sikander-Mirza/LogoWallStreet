@@ -14,13 +14,13 @@ export default function ReviewsStrip() {
                 className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500"
                 style={{ fontFamily: "var(--font-Poppins)" }}
               >
-                
+                {/* You can add a small label here if you want */}
               </p>
               <p
                 className="text-xl font-bold text-slate-900"
                 style={{ fontFamily: "var(--font-Playfair)" }}
               >
-               Our Reviews
+                Our Reviews
               </p>
             </div>
           </div>
@@ -33,8 +33,9 @@ export default function ReviewsStrip() {
               rating={4.8}
               text="Rated 4.8 / 5"
             />
+            {/* Trustpilot uses special icon flag */}
             <ReviewItem
-              icon={<SiTrustpilot className="text-[#00b67a]" />}
+              icon="trustpilot"
               label="Trustpilot"
               rating={4.9}
               text="Excellent"
@@ -62,13 +63,28 @@ function ReviewItem({ icon, label, rating, text }) {
   const fullStars = Math.floor(rating);
   const hasHalf = rating - fullStars >= 0.5;
 
+  // Render icon with conditional bubble
+  const renderIcon = () => {
+    if (icon === "trustpilot") {
+      return (
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-black">
+          <SiTrustpilot className="text-[#00b67a]" />
+        </div>
+      );
+    }
+
+    return (
+      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-50 text-xl">
+        {icon}
+      </div>
+    );
+  };
+
   return (
     <div className="flex items-center justify-center py-5 px-4">
       <div className="flex items-center gap-3">
         {/* Icon bubble */}
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-50 text-xl">
-          {icon}
-        </div>
+        {renderIcon()}
 
         {/* Text + stars */}
         <div className="text-left">

@@ -89,6 +89,7 @@ function AboutUs() {
           viewport={{ once: true, amount: 0.3 }}
         >
           <HeroHeading
+          style={{ fontFamily: "var(--font-Playfair)" }}
             preTitle="About the Logo Wall Street LLC"
             title="Top Logo Design Company"
             subtitle={`At The Logo Wall Street LLC, we understand the challenges small businesses face when starting out — that’s why we’re here to be your partner in success. As a leading logo design agency in the USA, we offer a full range of creative services to help you strengthen your brand and achieve your marketing goals.`}
