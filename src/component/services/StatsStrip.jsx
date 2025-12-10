@@ -11,22 +11,22 @@ import CountUp from "react-countup";
 const stats = [
   {
     id: 1,
-    label: "Trusted Clients",
-    value: 1485,
+    label: "Happy Clients",
+    value: 5500,
     suffix: "+",
     icon: Users,
   },
   {
     id: 2,
-    label: "Projects Completed",
-    value: 3452,
+    label: "Logo Design",
+    value: 3000,
     suffix: "+",
     icon: MonitorSmartphone,
   },
   {
     id: 3,
     label: "Years of Experience",
-    value: 25,
+    value: 5,
     suffix: "+",
     icon: Award,
   },
