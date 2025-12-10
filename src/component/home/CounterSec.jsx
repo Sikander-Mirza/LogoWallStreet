@@ -12,22 +12,22 @@ function CounterSec() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-white text-center px-6">
           <CounterItem
             iconClass="ri-shield-user-line"
-            end={500}
+            end={5500}
             label="Happy Clients"
           />
           <CounterItem
             iconClass="ri-palette-line"
-            end={1500}
+            end={3000}
             label="Logo Design"
           />
           <CounterItem
             iconClass="ri-dashboard-2-line"
-            end={6}
+            end={5}
             label="Years Of Experience"
           />
           <CounterItem
             iconClass="ri-code-line"
-            end={250}
+            end={1100}
             label="Web Design And Development"
           />
         </div>

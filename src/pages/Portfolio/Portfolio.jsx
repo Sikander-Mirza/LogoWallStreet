@@ -2,6 +2,7 @@ import React from "react";
 import HeroSection from "../../component/about/HeroSection";
 import TestimonialSec from "../../component/home/TestimonialSec";
 import PortfolioSection from "../../component/portfolio/PortfolioSection";
+import ReviewsStrip from "../../component/home/ReviewsStrip";
 
 function Portfolio() {
   return <div>
@@ -12,6 +13,7 @@ function Portfolio() {
     />
    <PortfolioSection/>
     <TestimonialSec />
+    <ReviewsStrip/>
   </div>;
 }
 

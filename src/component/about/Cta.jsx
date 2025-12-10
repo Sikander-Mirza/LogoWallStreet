@@ -39,7 +39,7 @@ export default function CTAConsultation() {
   return (
     <div 
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-800"
+      className="relative h-130 flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-800"
     >
       {/* Background Image with Overlay */}
       <div 
@@ -86,7 +86,9 @@ export default function CTAConsultation() {
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0) rotateX(0deg)' : 'translateY(30px) rotateX(10deg)',
+            fontFamily: "var(--font-Playfair)"
           }}
+          
         >
           Call Us Now For A{' '}
           <span className="relative inline-block">

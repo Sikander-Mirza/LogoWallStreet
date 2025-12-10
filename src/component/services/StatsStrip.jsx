@@ -62,7 +62,7 @@ export default function StatsStrip() {
           </div>
 
           {/* content */}
-          <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+          <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10" style={{ fontFamily: "var(--font-Playfair)" }}>
             {stats.map((stat, index) => (
               <StatItem key={stat.id} stat={stat} index={index} />
             ))}
@@ -97,7 +97,7 @@ function StatItem({ stat }) {
       <div className="relative">
         <p
           className="text-3xl md:text-4xl font-bold tracking-tight text-white"
-          style={{ fontFamily: "var(--font-Poppins)" }}
+          style={{ fontFamily: "var(--font-Playfair)" }}
         >
           <CountUp
             start={0}

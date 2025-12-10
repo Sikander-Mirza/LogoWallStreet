@@ -10,42 +10,88 @@ import web3 from "../../assets/images/web3.jpg";
 
 import "./PortfolioSection.css";
 
-const tabs = [
-  { id: "logo", label: "Logo Design" },
-  { id: "web", label: "Website Development" },
-  { id: "mobile", label: "Mobile App" },
-  { id: "ecom", label: "E‑Commerce Website" },
+/* MAIN TABS + SUB TABS CONFIG */
+const mainTabs = [
+  {
+    id: "logo",
+    label: "Graphic Design",
+    subTabs: [
+      { id: "logo-all", label: "All Logos" },
+      { id: "logo-modern", label: "Illustration" },
+      { id: "logo-mascot", label: "Mascot" },
+    ],
+  },
+  {
+    id: "web",
+    label: "Website Development",
+    subTabs: [
+      { id: "web-all", label: "All Websites" },
+      { id: "web-landing", label: "Landing Pages" },
+      { id: "web-portfolio", label: "Portfolio Sites" },
+    ],
+  },
+  {
+    id: "mobile",
+    label: "Mobile App",
+    subTabs: [
+      { id: "mobile-all", label: "All Apps" },
+      { id: "mobile-finance", label: "Finance" },
+      { id: "mobile-delivery", label: "Delivery" },
+    ],
+  },
+  {
+    id: "ecom",
+    label: "E‑Commerce Website",
+    subTabs: [
+      { id: "ecom-all", label: "All Stores" },
+      { id: "ecom-fashion", label: "Fashion" },
+      { id: "ecom-tech", label: "Tech" },
+    ],
+  },
 ];
 
+/* RAW DATA */
 const portfolioData = {
   logo: [
-    { id: 1, title: "Embrys Roofing", image: logo1 },
-    { id: 2, title: "Angel Canino", image: logo2 },
-    { id: 3, title: "Vidworks", image: logo3 },
+    { id: 1, title: "Embrys Roofing", image: logo1, type: "logo-modern" },
+    { id: 2, title: "Angel Canino", image: logo2, type: "logo-mascot" },
+    { id: 3, title: "Vidworks", image: logo3, type: "logo-modern" },
   ],
   web: [
-    { id: 1, title: "Agency Website", image: web1, tall: true },
-    { id: 2, title: "SaaS Landing", image: web2, tall: true },
-    { id: 3, title: "Portfolio Site", image: web3, tall: true },
+    { id: 1, title: "Agency Website", image: web1, tall: true, type: "web-landing" },
+    { id: 2, title: "SaaS Landing", image: web2, tall: true, type: "web-landing" },
+    { id: 3, title: "Portfolio Site", image: web3, tall: true, type: "web-portfolio" },
   ],
   mobile: [
-    { id: 1, title: "Finance App", image: logo1 },
-    { id: 2, title: "Fitness App", image: logo2 },
-    { id: 3, title: "Food Delivery", image: logo3 },
+    { id: 1, title: "Finance App", image: logo1, type: "mobile-finance" },
+    { id: 2, title: "Fitness App", image: logo2, type: "mobile-all" },
+    { id: 3, title: "Food Delivery", image: logo3, type: "mobile-delivery" },
   ],
   ecom: [
-    { id: 1, title: "Fashion Store", image: web1, tall: true },
-    { id: 2, title: "Gadgets Shop", image: web2, tall: true },
-    { id: 3, title: "Cosmetics", image: web3, tall: true },
+    { id: 1, title: "Fashion Store", image: web1, tall: true, type: "ecom-fashion" },
+    { id: 2, title: "Gadgets Shop", image: web2, tall: true, type: "ecom-tech" },
+    { id: 3, title: "Cosmetics", image: web3, tall: true, type: "ecom-all" },
   ],
 };
 
 export default function PortfolioSection() {
-  const [activeTab, setActiveTab] = useState("logo");
-  const items = portfolioData[activeTab] ?? [];
+  const [activeMainTab, setActiveMainTab] = useState("logo");
+  const [activeSubTab, setActiveSubTab] = useState("logo-all");
+
+  const currentMain = mainTabs.find((t) => t.id === activeMainTab);
+  const currentSubTabs = currentMain?.subTabs || [];
+
+  // Get items for current main tab
+  const allItems = portfolioData[activeMainTab] ?? [];
+
+  // Filter by subTab if not "all"
+  const items =
+    activeSubTab && !activeSubTab.endsWith("all")
+      ? allItems.filter((item) => item.type === activeSubTab)
+      : allItems;
 
   return (
-    <section className="bg-white py-16 md:py-20 mt-20">
+    <section id="pricing-bottom" className="bg-white py-16 md:py-20 mt-20">
       <div className="max-w-7xl mx-auto px-4 lg:px-10">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
@@ -74,19 +120,25 @@ export default function PortfolioSection() {
               below:
             </p>
           </div>
-
-         
         </div>
 
-        {/* Tabs – light pill style */}
-        <div className="mb-8">
+        {/* MAIN TABS – light pill style */}
+        <div className="mb-4 flex justify-center">
           <div className="inline-flex w-full md:w-auto rounded-full bg-slate-100 border border-slate-200 p-1 overflow-x-auto scrollbar-hide">
-            {tabs.map((tab) => {
-              const isActive = activeTab === tab.id;
+            {mainTabs.map((tab) => {
+              const isActive = activeMainTab === tab.id;
               return (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
+                  onClick={() => {
+                    setActiveMainTab(tab.id);
+                    // set first sub‑tab as default for that main tab
+                    if (tab.subTabs && tab.subTabs.length > 0) {
+                      setActiveSubTab(tab.subTabs[0].id);
+                    } else {
+                      setActiveSubTab("");
+                    }
+                  }}
                   role="tab"
                   aria-selected={isActive}
                   className={[
@@ -104,9 +156,37 @@ export default function PortfolioSection() {
           </div>
         </div>
 
+        {/* SUB TABS */}
+        {currentSubTabs.length > 0 && (
+          <div className="mb-8 flex justify-center">
+            <div className="inline-flex w-full md:w-auto rounded-full bg-slate-50 border border-slate-200 p-1 overflow-x-auto scrollbar-hide">
+              {currentSubTabs.map((sub) => {
+                const isActive = activeSubTab === sub.id;
+                return (
+                  <button
+                    key={sub.id}
+                    onClick={() => setActiveSubTab(sub.id)}
+                    role="tab"
+                    aria-selected={isActive}
+                    className={[
+                      "whitespace-nowrap px-3 md:px-4 py-1.5 text-[13px] md:text-[14px] font-medium rounded-full transition-all",
+                      isActive
+                        ? "bg-white text-orange-500 shadow-sm border border-orange-300"
+                        : "text-slate-700 hover:bg-white/80",
+                    ].join(" ")}
+                    style={{ fontFamily: "var(--font-Poppins)" }}
+                  >
+                    {sub.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         {/* Grid */}
         <motion.div
-          key={activeTab}
+          key={`${activeMainTab}-${activeSubTab}`}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
@@ -118,7 +198,7 @@ export default function PortfolioSection() {
               title={item.title}
               image={item.image}
               tall={item.tall}
-              isScrollingTab={activeTab === "web" || activeTab === "ecom"}
+              isScrollingTab={activeMainTab === "web" || activeMainTab === "ecom"}
             />
           ))}
         </motion.div>
@@ -141,14 +221,12 @@ function PortfolioCard({ title, image, tall, isScrollingTab }) {
         ].join(" ")}
       >
         {enableScrollEffect ? (
-          // long website screenshot: scroll on hover using CSS
           <img
             src={image}
             alt={title}
             className="portfolio-scroll-img w-full h-auto object-cover"
           />
         ) : (
-          // normal image: simple zoom on hover
           <img
             src={image}
             alt={title}
@@ -156,12 +234,9 @@ function PortfolioCard({ title, image, tall, isScrollingTab }) {
           />
         )}
 
-        {/* soft top & bottom gradients for readability */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/40 to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-black/10 to-transparent" />
       </div>
-
-      
     </div>
   );
 }

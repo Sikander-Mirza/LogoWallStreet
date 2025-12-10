@@ -71,7 +71,7 @@ export default function AgencyHero() {
 
                         {/* Expertise Section */}
                         <div className="bg-white/90 backdrop-blur-md rounded-xl p-6 sm:p-8 shadow-lg border border-slate-200">
-                            <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-4 sm:mb-6">Our Expertise</h3>
+                            <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-4 sm:mb-6"style={{ fontFamily: "var(--font-Playfair)" }}>Our Expertise</h3>
 
                             <div className="space-y-6">
                                 {expertise.map((item, index) => {
@@ -120,13 +120,15 @@ export default function AgencyHero() {
                         {/* Small Title */}
                         <div className="flex items-center gap-3 mb-3 sm:mb-4">
                             <div className="h-0.5 w-10 sm:w-12 bg-gradient-to-r from-orange-500 to-red-500"></div>
-                            <span className="text-orange-400 font-semibold tracking-wider text-xs sm:text-sm uppercase">
+                            <span className="text-orange-400 font-semibold tracking-wider text-xs sm:text-sm uppercase"
+                            style={{ fontFamily: "var(--font-Playfair)" }}>
                                 Who We Are
                             </span>
                         </div>
 
                         {/* Main Heading */}
-                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight"
+                        style={{ fontFamily: "var(--font-Playfair)" }}>
                             Leading Global Creative Digital Agency
                         </h1>
 

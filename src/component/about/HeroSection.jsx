@@ -8,7 +8,7 @@ export default function PageHero({
 }) {
   return (
     <section
-      className="relative w-full min-h-screen flex items-center justify-center text-white px-6 py-24 overflow-hidden"
+      className="relative w-full flex items-center justify-center text-white px-6 py-24 overflow-hidden"
       style={{ marginBottom: "-80px" }}
     >
       {/* Background image */}
@@ -32,7 +32,8 @@ export default function PageHero({
         className="relative z-10 max-w-3xl mx-auto text-center space-y-8"
       >
         {/* Heading */}
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-wide drop-shadow-xl mt-10">
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-wide drop-shadow-xl mt-10"
+        style={{ fontFamily: "var(--font-Playfair)" }}>
           {title}
         </h1>
 

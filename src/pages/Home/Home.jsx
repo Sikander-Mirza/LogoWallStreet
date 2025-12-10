@@ -12,6 +12,7 @@ import MarketingCollateral from "../../component/home/MarketingCollateral";
 import OurProject from "../../component/home/OurProject";
 import PricingSec from "../../component/home/PricingSec";
 import TestimonialSec from "../../component/home/TestimonialSec";
+import ReviewsStrip from "../../component/home/ReviewsStrip";
 
 
 function Home() {
@@ -29,6 +30,7 @@ function Home() {
     <OurProject />
     <PricingSec />
     <TestimonialSec />
+    <ReviewsStrip/>
   </div>;
 }
 

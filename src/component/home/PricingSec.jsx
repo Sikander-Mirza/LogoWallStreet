@@ -4,8 +4,8 @@ import Button from '../button/Button'
 import TabPanel from "../others/TabPanel"
 import PricingGrid from '../others/PricingGrid';
 import PricingCard from '../others/PricingCard';
-
-
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const mainTabs = [
   {
     id: "Graphic",
@@ -770,27 +770,25 @@ const currentSubTabs = currentMain?.subTabs || [];
           </p>
         </div>
 
-        {/* Right: quick highlights */}
-        <div className="grid grid-cols-2 gap-4 text-sm">
-         
-          <div className="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 shadow-sm">
-            <p className="text-xs uppercase tracking-wide text-slate-500">
-              Transparent Pricing
-            </p>
-            <p className="mt-1 text-base font-semibold text-slate-900">
-              No hidden fees, ever
-            </p>
-          </div>
-        </div>
+        {/* Right: button that jumps to Pricing bottom */}
+<div className="flex md:justify-end justify-center">
+  <Link
+    to="/pricing#pricing-bottom"
+    className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-orange-500/40 hover:from-orange-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-slate-50"
+    style={{ fontFamily: 'var(--font-Poppins)' }}
+  >
+    View Pricing
+  </Link>
+</div>
       </div>
 
       {/* TAB NAV */}
       {/* MAIN TAB NAV */}
-<div className="mt-2 mb-3">
-  <div
-    className="inline-flex w-full md:w-auto rounded-full bg-white border border-slate-200 p-1 overflow-x-auto scrollbar-hide"
-    role="tablist"
-  >
+<div className="mt-2 mb-3 flex justify-center">
+ <div
+  className="mt-2 mb-3 inline-flex items-center justify-center w-full md:w-auto rounded-full bg-white border border-slate-200 p-1 overflow-x-auto scrollbar-hide"
+  role="tablist"
+>
     {mainTabs.map((tab) => {
       const isActive = activeMainTab === tab.id;
       return (
@@ -823,7 +821,7 @@ const currentSubTabs = currentMain?.subTabs || [];
 
 {/* SUB TAB NAV (depends on active main) */}
 {currentSubTabs.length > 0 && (
-  <div className="mb-6">
+  <div className="mb-6 flex justify-center">
     <div
       className="inline-flex w-full md:w-auto rounded-full bg-slate-50 border border-slate-200 p-1 overflow-x-auto scrollbar-hide"
       role="tablist"

@@ -31,13 +31,15 @@ export default function ExperienceSection() {
 
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-[3px] bg-orange-500"></div>
-                        <span className="text-sm font-semibold tracking-widest text-gray-700">
+                        <span className="text-sm font-semibold tracking-widest text-gray-700"
+                        style={{ fontFamily: "var(--font-Playfair)" }}>
                             ABOUT THE LOGO WALL STREET
                         </span>
                     </div>
 
-                    <h2 className="text-4xl lg:text-4xl font-bold text-[#0b183b] leading-tight">
-                        5 Years of Experience in the <br />
+                    <h2 className="text-4xl lg:text-4xl font-bold text-[#0b183b] leading-tight"
+                    style={{ fontFamily: "var(--font-Playfair)" }}>
+                        5+ Years of Experience in the <br />
                         Creative Digital Agency Realm
                     </h2>
 
@@ -52,11 +54,11 @@ export default function ExperienceSection() {
                     <div className="mt-6 space-y-10">
 
                         {/* STAT 1 */}
-                        {/* STAT 1 */}
+
                         <div className="grid grid-cols-[120px_1px_1fr] items-start gap-6">
                             <div className="flex flex-col text-orange-500">
                                 <div className="flex items-end text-4xl font-bold">
-                                    <Counter to={500} />
+                                    <Counter to={5500} />
                                     <span>+</span>
                                 </div>
                                 <span className="text-sm tracking-wide text-gray-700">happy clients</span>
@@ -79,7 +81,7 @@ export default function ExperienceSection() {
                         <div className="grid grid-cols-[120px_1px_1fr] items-start gap-6">
                             <div className="flex flex-col text-orange-500">
                                 <div className="flex items-end text-4xl font-bold">
-                                    <Counter to={1500} />
+                                    <Counter to={3000} />
                                     <span>+</span>
                                 </div>
                                 <span className="text-sm tracking-wide text-gray-700">logo designs</span>

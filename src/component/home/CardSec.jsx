@@ -52,7 +52,7 @@ function CardsSection() {
               className={`${card.icon} text-4xl text-orange-500 group-hover:text-white transition-all duration-300`}
             ></i>
 
-            <h3 className="mt-4 text-xl font-semibold text-gray-800 group-hover:text-white transition-all duration-300">
+            <h3 className="mt-4 text-xl font-semibold text-gray-800 group-hover:text-white transition-all duration-300" style={{ fontFamily: "var(--font-Playfair)" }}>
               {card.title}
             </h3>
 

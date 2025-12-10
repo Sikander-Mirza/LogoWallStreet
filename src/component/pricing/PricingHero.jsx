@@ -2,7 +2,7 @@ import React from "react";
 
 const PricingShowcase = () => {
   return (
-    <section className="relative overflow-hidden bg-[#351fb5] text-white" style={{marginTop:"-80px"}}>
+    <section id="pricing-bottom" className="relative overflow-hidden bg-[#351fb5] text-white" style={{marginTop:"-80px"}}>
       {/* background gradient + shapes */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-indigo-500/30 blur-3xl" />
@@ -99,7 +99,7 @@ const PricingShowcase = () => {
             </span>
           </div>
 
-          <h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-[2.6rem]">
+          <h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-[2.6rem]"style={{ fontFamily: "var(--font-Playfair)" }}>
             Pocket‑Friendly Plans
             <span className="block text-indigo-100">that Actually Work for You</span>
           </h2>
@@ -180,7 +180,7 @@ const PricingShowcase = () => {
                 <p className="text-xs font-medium uppercase tracking-wide text-slate-200/80">
                   Talk to a specialist
                 </p>
-                <p className="mt-0.5 text-base font-semibold">(307) 218‑3240</p>
+                <p className="mt-0.5 text-base font-semibold" style={{ fontFamily: "var(--font-Playfair)" }}>(307) 218‑3240</p>
               </div>
             </div>
           </div>

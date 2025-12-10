@@ -4,6 +4,7 @@ import TestimonialSec from "../../component/home/TestimonialSec";
 import WorkingProcess from "../../component/services/WorkingProcess";
 import ShowCase from "../../component//branding/ShowCase";
 import StatsStrip from "../../component/services/StatsStrip";
+import ReviewsStrip from "../../component/home/ReviewsStrip";
 
 function Branding() {
 
@@ -30,6 +31,7 @@ function Branding() {
         <ShowCase />
         <StatsStrip />
         <TestimonialSec />
+        <ReviewsStrip/>
     </div>;
 }
 

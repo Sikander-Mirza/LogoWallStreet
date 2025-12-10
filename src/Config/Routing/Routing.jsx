@@ -20,11 +20,13 @@ import Illustration from '../../pages/illustration/Illustration.jsx';
 import VideoAnim from '../../pages/VideoAnimation/VideoAnim.jsx';
 import CopyWriting from '../../pages/CopyWriting/CopyWriting.jsx';
 import { ScrollRestoration, Outlet } from "react-router-dom";
+import ScrollToHashElement from "../../component/others/ScrollToHashElement.jsx";
 
 function Layout() {
   return (
     <>
       <Navbar />
+      <ScrollToHashElement/>
       <ScrollRestoration />
       <Outlet />
     </>

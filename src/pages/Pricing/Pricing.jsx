@@ -4,6 +4,7 @@ import HeroSection from "../../component/about/HeroSection";
 import PricingHero from "../../component/pricing/PricingHero";
 import WhyChoose from "../../component/home/WhyChoose";
 import TestimonialSec from "../../component/home/TestimonialSec";
+import ReviewsStrip from "../../component/home/ReviewsStrip";
 function Pricing() {
   return (
     <div>
@@ -21,7 +22,9 @@ function Pricing() {
       <div className="mt-20 mb-20">
       <WhyChoose />
 </div>
+
       <TestimonialSec />
+<ReviewsStrip/>
     </div>
   );
 }

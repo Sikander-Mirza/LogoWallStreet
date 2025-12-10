@@ -10,6 +10,7 @@ import {
   MessageSquare,
   Rocket,
 } from "lucide-react";
+import ReviewsStrip from "../../component/home/ReviewsStrip";
 function WebDevelopment() {
 
 //     const customSteps = [
@@ -35,6 +36,7 @@ function WebDevelopment() {
 <ShowCase/>
 <StatsStrip/>
       <TestimonialSec />
+      <ReviewsStrip/>
   </div>;
 }
 
