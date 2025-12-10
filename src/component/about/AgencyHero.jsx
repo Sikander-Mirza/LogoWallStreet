@@ -42,36 +42,43 @@ export default function AgencyHero() {
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 ">
             {/* Hero Section */}
             <div className="grid lg:grid-cols-2 min-h-screen">
 
                 {/* Left Side */}
                 <div
-                    className="relative bg-white p-6 sm:p-8 lg:p-12 flex flex-col justify-center overflow-hidden"
-                    style={{
-                        backgroundImage: `url(${aboutus})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        backgroundAttachment: "fixed",
-                    }}
-                >
-                    {/* Overlay */}
-                    <div className="absolute inset-0 backdrop-blur-sm lg:backdrop-blur"></div>
+  className="relative bg-white p-6 sm:p-8 lg:p-12 flex flex-col justify-center overflow-hidden"
+  style={{
+    backgroundImage: `url(${aboutus})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundAttachment: "fixed",
+  }}
+>
+  {/* Blue tint + blur overlay (more transparent) */}
+  <div
+    className="
+      absolute inset-0
+      backdrop-blur-sm lg:backdrop-blur
+      bg-gradient-to-br from-blue-600/70 via-blue-800/70 to-indigo-900/70
+    "
+  />
 
-                    <div className="relative z-10">
-                        <div className="relative rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-300 hover:scale-[1.02] mb-6 sm:mb-8">
-                            <img
-                                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
-                                alt="Creative team collaboration"
-                                className="w-full h-56 sm:h-72 md:h-80 object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                        </div>
+  <div className="relative z-10">
+    {/* Main image card */}
+    <div className="relative rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-300 hover:scale-[1.02] mb-6 sm:mb-8">
+      <img
+        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
+        alt="Creative team collaboration"
+        className="w-full h-56 sm:h-72 md:h-80 object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+    </div>
 
-                        {/* Expertise Section */}
-                        <div className="bg-white/90 backdrop-blur-md rounded-xl p-6 sm:p-8 shadow-lg border border-slate-200">
-                            <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-4 sm:mb-6"style={{ fontFamily: "var(--font-Playfair)" }}>Our Expertise</h3>
+    {/* Expertise Section */}
+    <div className="bg-white/90 backdrop-blur-md rounded-xl p-6 sm:p-8 shadow-lg border border-slate-200">
+                            <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-4 sm:mb-6" style={{ fontFamily: "var(--font-Playfair)" }}>Our Expertise</h3>
 
                             <div className="space-y-6">
                                 {expertise.map((item, index) => {
@@ -107,8 +114,13 @@ export default function AgencyHero() {
                     </div>
                 </div>
 
-                {/* Right Side */}
-                <div className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 p-6 sm:p-8 lg:p-12 flex flex-col justify-center overflow-hidden">
+                <div
+                    className="
+    relative p-6 sm:p-8 lg:p-12
+    flex flex-col justify-center overflow-hidden
+    bg-gradient-to-br from-[#020617] via-[#050816] to-[#111827]
+  "
+                >
 
                     {/* Background Shapes */}
                     <div className="absolute inset-0 opacity-10">
@@ -121,14 +133,14 @@ export default function AgencyHero() {
                         <div className="flex items-center gap-3 mb-3 sm:mb-4">
                             <div className="h-0.5 w-10 sm:w-12 bg-gradient-to-r from-orange-500 to-red-500"></div>
                             <span className="text-orange-400 font-semibold tracking-wider text-xs sm:text-sm uppercase"
-                            style={{ fontFamily: "var(--font-Playfair)" }}>
+                                style={{ fontFamily: "var(--font-Playfair)" }}>
                                 Who We Are
                             </span>
                         </div>
 
                         {/* Main Heading */}
                         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight"
-                        style={{ fontFamily: "var(--font-Playfair)" }}>
+                            style={{ fontFamily: "var(--font-Playfair)" }}>
                             Leading Global Creative Digital Agency
                         </h1>
 
@@ -140,7 +152,7 @@ export default function AgencyHero() {
                         {/* Stats Grid */}
                         <div ref={statsRef} className="grid grid-cols-2 gap-6 sm:gap-10 max-w-sm sm:max-w-md md:max-w-lg mx-auto">
 
-                           
+
                             {/* ==== STAT 1 ==== */}
                             <div className="text-center">
                                 <div className="relative w-24 h-24 sm:w-32 sm:h-32 mx-auto">
