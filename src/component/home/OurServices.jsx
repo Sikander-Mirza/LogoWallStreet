@@ -52,29 +52,57 @@ function OurServices() {
   return (
     <section className="py-12 sm:py-14 md:py-16 lg:py-20">
       <div className="max-w-[1250px] mx-auto px-5 sm:px-8 md:px-12">
-        {/* Heading + Button row */}
-<div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center">
-  <div>
-    <HeroHeading
-      preTitle="Our Services"
-      title="Services We Provides"
-      textColor="black"
-    />
-  </div>
 
-  {/* Button left on all screens + good gap on mobile */}
-  <div className="mt-3 md:mt-0 flex md:justify-end">
-    <Button text={"All Services"} />
-  </div>
-</div>
+        {/* Heading + Button */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center">
+          <div>
+            <HeroHeading
+              preTitle="Our Services"
+              title="Services We Provides"
+              textColor="black"
+            />
+          </div>
+          <div className="mt-3 md:mt-0 flex md:justify-end">
+            <Button text={"All Services"} />
+          </div>
+        </div>
 
-
-        {/* Cards grid */}
+        {/* Cards grid with SAME styling */}
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {cardsData.map((card, index) => (
-            <Card key={index} {...card} />
+            <div
+              key={index}
+              className="
+                bg-white
+                p-6 
+                rounded-2xl 
+                shadow-md 
+                transition-all 
+                duration-300 
+                hover:bg-orange-500
+                hover:scale-105
+                hover:shadow-xl
+                cursor-pointer
+                group
+                text-center
+                flex flex-col items-center
+              "
+            >
+              <i
+                className={`${card.icon} text-4xl text-orange-500 group-hover:text-white transition-all duration-300`}
+              ></i>
+
+              <h3 className="mt-4 text-xl font-semibold text-gray-800 group-hover:text-white transition-all duration-300">
+                {card.title}
+              </h3>
+
+              <p className="mt-3 text-gray-600 group-hover:text-white transition-all duration-300">
+                {card.description}
+              </p>
+            </div>
           ))}
         </div>
+
       </div>
     </section>
   )

@@ -51,32 +51,36 @@ const settings = {
 
 
     return (
-            <section className="text-center mt-12">
-                <div
-                    className="h-[500px] pt-20 bg-cover bg-center text-center"
-                    style={{ backgroundImage: `url(${bgImg})` }}
-                >
-                    <HeroHeading
-                        preTitle="Our Projects"
-                        title="Proven Track Record in Logo Design"
-                        justifyContent="justify-center"
-                        subtitle="As a Top Logo Design Agency, we understand the importance of creating a logo that accurately represents a brand’s identity and message. Each logo in our portfolio has been thoughtfully crafted with attention to detail and a focus on creating a strong visual impact."
-                    />
-                </div>
-                <div className='w-full max-w-[1200px] mx-auto relative bottom-[150px] items-center sm:bottom-[80px] md:bottom-[100px]'>
-                    <Slider {...settings}>
-                        {images.map((image, index) => (
-                            <div key={index}>
-                                <img
-                                    src={image}
-                                    alt={`Slide ${index + 1}`}
-                                    className="w-full rounded-[20px] px-2 h-[350px] object-cover"
-                                />
-                            </div>
-                        ))}
-                    </Slider>
-                </div>
-            </section>
+          <section className="text-center mt-12">
+  <div
+    className="
+      h-[500px] pt-20 text-center
+      bg-gradient-to-br from-[#ffb347] via-[#ff7a00] to-[#b91c1c]
+    "
+  >
+    <HeroHeading
+      preTitle="Our Projects"
+      title="Proven Track Record in Logo Design"
+      justifyContent="justify-center"
+      subtitle="As a Top Logo Design Agency, we understand the importance of creating a logo that accurately represents a brand’s identity and message. Each logo in our portfolio has been thoughtfully crafted with attention to detail and a focus on creating a strong visual impact."
+    />
+  </div>
+
+  <div className="w-full max-w-[1200px] mx-auto relative bottom-[150px] sm:bottom-[80px] md:bottom-[100px]">
+    <Slider {...settings}>
+      {images.map((image, index) => (
+        <div key={index}>
+          <img
+            src={image}
+            alt={`Slide ${index + 1}`}
+            className="w-full rounded-[20px] px-2 h-[350px] object-cover"
+          />
+        </div>
+      ))}
+    </Slider>
+  </div>
+</section>
+
     );
 }
 

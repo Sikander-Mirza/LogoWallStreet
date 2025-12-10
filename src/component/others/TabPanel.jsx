@@ -1,12 +1,12 @@
 // src/component/others/TabPanel.jsx
 import React from "react";
 
-const TabPanel = ({ id, activeTab, children }) => (
+const TabPanel = ({ id, activeSubTab, children }) => (
   <div
     id={id}
     role="tabpanel"
     aria-labelledby={`${id}-tab`}
-    className={activeTab === id ? "block" : "hidden"}
+    className={activeSubTab === id ? "block" : "hidden"}
   >
     {children}
   </div>

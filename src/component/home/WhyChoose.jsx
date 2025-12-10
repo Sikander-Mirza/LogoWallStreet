@@ -48,9 +48,6 @@ function WhyChoose() {
                     <HeroHeading
                         preTitle="Why Choose Us"
                         title="Professional Logo Design Company"
-                        subtitle="As a leading logo design company, The Logo Wall Street LLC delivers more than just stunning visuals. We provide innovative online solutions that help businesses achieve their goals and connect with their target audience."
-                        subtitle2="Our team specializes in web design, social media management, content creation, SEO, and more. We stay ahead of the latest trends and technologies to ensure our clients always benefit from the most effective digital solutions."
-                        subtitle3="Let The Logo Wall Street LLC be your partner in building a powerful brand and thriving online presence."
                         preTitleClass="text-yellow-400"
                         titleClass="text-4xl md:text-5xl font-extrabold "
                         subtitleClass="mt-3"

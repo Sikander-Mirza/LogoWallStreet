@@ -14,26 +14,26 @@ function TestimonialSec() {
       id: 1,
       name: "Beverley Allan",
       title: "Developer",
-      image: userImg,
+      image: "https://i0.wp.com/pencheffphoto.com/wp-content/uploads/2017/02/12-4887-pp_gallery/016-Headshots.jpg?resize=1641%2C1313&ssl=1",
       text: "The Logo Wall Street LLC's customer service is exceptional, and their work quality is impressive. The team was professional, effective, and understood our needs perfectly, delivering a solution beyond expectations. I would gladly work with them again and highly recommend them for any design needs."
     },
     {
       id: 2,
       name: "John Doe",
       title: "CEO at ABC Corp",
-      image: userImg,
+      image: "https://t3.ftcdn.net/jpg/01/04/93/56/360_F_104935633_9dB5CW1aSk35RYSXQPYOCudPMku6vMFv.jpg",
       text: "My experience with The Logo Wall Street LLC was exceptional. They maintained great communication, were receptive to feedback, and delivered exactly what I envisioned. Their attention to detail and dedication to exceeding expectations was remarkable. I highly recommend their services for outstanding design work."
     },
     {
       id: 3,
       name: "Alice Smith",
       title: "Marketing Head at DEF Inc.",
-      image: userImg,
+      image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Ricky_JeanFrancois_%2815%29_%28cropped%29.jpg",
       text: "Working with The Logo Wall Street LLC has transformed my business. Their expert advice and stunning designs have helped us reach a new audience and refreshed our brand. I’m impressed with their impact and highly recommend them to anyone looking to elevate their brand."
     },
     {
       id: 4,
-      name: "Alice Smith",
+      name: "Alex",
       title: "Marketing Head at DEF Inc.",
       image: userImg,
       text: "We were extremely pleased with the design and quality of work provided by The Logo Wall Street LLC. They understood our requirements and delivered a solution that was both aesthetically appealing and functional."

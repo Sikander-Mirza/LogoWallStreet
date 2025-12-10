@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// Navbar.jsx
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import MenuItems from "./MenuItems.jsx";
@@ -8,7 +9,30 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [showServices, setShowServices] = useState(false);
 
-  const toggleServices = () => setShowServices(!showServices);
+  const desktopMenuRef = useRef(null);
+
+  const toggleServices = () => setShowServices((prev) => !prev);
+  const closeServices = () => setShowServices(false);
+
+  // Close services submenu when clicking outside (desktop only)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        desktopMenuRef.current &&
+        !desktopMenuRef.current.contains(event.target)
+      ) {
+        closeServices();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="bg-white dark:bg-gray-900 fixed top-4 left-1/2 -translate-x-1/2 z-20 w-[92%] md:w-[90%] lg:w-[85%] border border-gray-200 dark:border-gray-700 rounded-xl shadow-md">
@@ -19,8 +43,15 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
-          <MenuItems showServices={showServices} toggleServices={toggleServices} />
+        <div
+          ref={desktopMenuRef}
+          className="hidden md:flex items-center space-x-8"
+        >
+          <MenuItems
+            showServices={showServices}
+            toggleServices={toggleServices}
+            closeServices={closeServices}
+          />
         </div>
 
         {/* Right side */}
@@ -43,11 +74,12 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div  className="md:hidden bg-white border-t border-gray-200 px-4 py-3 space-y-2 rounded-b-xl">
+        <div className="md:hidden bg-white border-t border-gray-200 px-4 py-3 space-y-2 rounded-b-xl">
           <MenuItems
             isMobile={true}
             showServices={showServices}
             toggleServices={toggleServices}
+            closeServices={closeServices}
           />
           <Button text="Get Started" className="w-full" />
         </div>

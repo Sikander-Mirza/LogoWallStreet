@@ -1,44 +1,59 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AboutUs from "../../pages/About/AboutUs";
-import ContactUs from "../../pages/Contact/ContactUs";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
 import Navbar from "../../component/navbar/Navbar";
 import Home from "../../pages/Home/Home";
+import AboutUs from "../../pages/About/AboutUs";
+import ContactUs from "../../pages/Contact/ContactUs";
 import Pricing from "../../pages/Pricing/Pricing";
-import Portfolio from "../../pages/Portfolio/Portfolio"
+import Portfolio from "../../pages/Portfolio/Portfolio";
 import Review from '../../pages/Review/review';
 import WebDevelopment from '../../pages/WebDevelopment/WebDevelopment';
 import Ecommerce from '../../pages/Ecommerce/Ecommerce';
 import Branding from '../../pages/Branding/Branding';
-import SEO from "../../pages/SEO/Seo.jsx"
+import SEO from "../../pages/SEO/Seo.jsx";
 import Logo from '../../pages/Logo Design/Logo.jsx';
 import AppDev from '../../pages/App Dev/AppDev.jsx';
 import Illustration from '../../pages/illustration/Illustration.jsx';
 import VideoAnim from '../../pages/VideoAnimation/VideoAnim.jsx';
 import CopyWriting from '../../pages/CopyWriting/CopyWriting.jsx';
-function Routing() {
+import { ScrollRestoration, Outlet } from "react-router-dom";
+
+function Layout() {
   return (
-    <Router>
+    <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/portfolio" element={<Portfolio/>} />
-        <Route path="/review" element={<Review/>} />
-        <Route path="/web-design" element={<WebDevelopment/>} />
-        <Route path="/ecommerce" element={<Ecommerce/>} />
-        <Route path="/branding" element={<Branding/>} />
-        <Route path="/SEO" element={<SEO/>} />
-        <Route path="/Logo-design" element={<Logo/>} />
-        <Route path="/App-Dev" element={<AppDev/>} />
-        <Route path="/Illustration" element={<Illustration/>} />
-        <Route path="/VideoAnimation" element={<VideoAnim/>} />
-        <Route path="/copywriting" element={<CopyWriting/>} />
-      </Routes>
-    </Router>
-  )
+      <ScrollRestoration />
+      <Outlet />
+    </>
+  );
 }
 
-export default Routing
+const router = createBrowserRouter([
+  {
+    element: <Layout />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/about-us", element: <AboutUs /> },
+      { path: "/contact-us", element: <ContactUs /> },
+      { path: "/pricing", element: <Pricing /> },
+      { path: "/portfolio", element: <Portfolio /> },
+      { path: "/review", element: <Review /> },
+      { path: "/web-design", element: <WebDevelopment /> },
+      { path: "/ecommerce", element: <Ecommerce /> },
+      { path: "/branding", element: <Branding /> },
+      { path: "/SEO", element: <SEO /> },
+      { path: "/Logo-design", element: <Logo /> },
+      { path: "/App-Dev", element: <AppDev /> },
+      { path: "/Illustration", element: <Illustration /> },
+      { path: "/VideoAnimation", element: <VideoAnim /> },
+      { path: "/copywriting", element: <CopyWriting /> },
+    ],
+  },
+]);
+
+export default function Routing() {
+  return <RouterProvider router={router} />;
+}

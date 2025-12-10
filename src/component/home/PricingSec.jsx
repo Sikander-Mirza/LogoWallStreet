@@ -4,8 +4,53 @@ import Button from '../button/Button'
 import TabPanel from "../others/TabPanel"
 import PricingGrid from '../others/PricingGrid';
 import PricingCard from '../others/PricingCard';
+
+
+const mainTabs = [
+  {
+    id: "Graphic",
+    label: "Graphic Design",
+    subTabs: [
+      { id: "Logo", label: "Logo Design" },
+      { id: "Illustration", label: "Illustration" },
+      { id: "Branding", label: "Brand Identity" },
+    ],
+  },
+  {
+    id: "Web",
+    label: "Web Development",
+    subTabs: [
+      { id: "webPackage", label: "Web Solutions" },
+      { id: "Ecommerce", label: "Online Store" },
+      { id: "Seo", label: "SEO Services" },
+    ],
+  },
+  {
+    id: "AnimationMain",
+    label: "Animation",
+    subTabs: [
+      { id: "Animation", label: "Motion Graphics" },
+    ],
+  },
+  {
+    id: "ComboMain",
+    label: "All‑in‑One",
+    subTabs: [
+      { id: "Combo", label: "All‑in‑One" },
+    ],
+  },
+];
+
+
 function PricingSec() {
-    const [activeTab, setActiveTab] = useState('Logo'); // State to track active tab
+   const [activeMainTab, setActiveMainTab] = useState("Graphic");
+const [activeSubTab, setActiveSubTab] = useState("Logo");
+
+const currentMain = mainTabs.find((t) => t.id === activeMainTab);
+const currentSubTabs = currentMain?.subTabs || [];
+
+
+
 
     // Logo Pricing data with features
     const pricingLogoData = [
@@ -682,6 +727,9 @@ function PricingSec() {
         { phoneNumber: "012345678990" },
     ];
 
+
+
+
     return (
        <section className="md:pt-10 md:pb-14 bg-slate-50 relative overflow-hidden">
     {/* soft background shapes */}
@@ -724,14 +772,7 @@ function PricingSec() {
 
         {/* Right: quick highlights */}
         <div className="grid grid-cols-2 gap-4 text-sm">
-          <div className="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 shadow-sm">
-            <p className="text-xs uppercase tracking-wide text-slate-500">
-              Flexible Plans
-            </p>
-            <p className="mt-1 text-base font-semibold text-slate-900">
-              For startups & growing brands
-            </p>
-          </div>
+         
           <div className="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 shadow-sm">
             <p className="text-xs uppercase tracking-wide text-slate-500">
               Transparent Pricing
@@ -744,93 +785,111 @@ function PricingSec() {
       </div>
 
       {/* TAB NAV */}
-      <div className="mt-2 mb-6">
-        <div
-          className="inline-flex w-full md:w-auto rounded-full bg-white border border-slate-200 p-1 overflow-x-auto scrollbar-hide"
-          role="tablist"
+      {/* MAIN TAB NAV */}
+<div className="mt-2 mb-3">
+  <div
+    className="inline-flex w-full md:w-auto rounded-full bg-white border border-slate-200 p-1 overflow-x-auto scrollbar-hide"
+    role="tablist"
+  >
+    {mainTabs.map((tab) => {
+      const isActive = activeMainTab === tab.id;
+      return (
+        <button
+          key={tab.id}
+          style={{ fontFamily: "var(--font-Poppins)" }}
+          type="button"
+          role="tab"
+          aria-selected={isActive ? "true" : "false"}
+          onClick={() => {
+            setActiveMainTab(tab.id);
+            // default to first sub tab when switching main
+            if (tab.subTabs && tab.subTabs.length > 0) {
+              setActiveSubTab(tab.subTabs[0].id);
+            }
+          }}
+          className={[
+            "whitespace-nowrap px-4 md:px-5 py-2 text-[14px] md:text-[15px] font-medium rounded-full transition-all",
+            isActive
+              ? "bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-md shadow-orange-500/35"
+              : "text-slate-700 hover:bg-slate-100",
+          ].join(" ")}
         >
-          {[
-            { id: "Logo", label: "Logo Design" },
-            { id: "webPackage", label: "Web Solutions" },
-            { id: "Illustration", label: "Illustration" },
-            { id: "Ecommerce", label: "Online Store" },
-            { id: "Seo", label: "SEO Services" },
-            { id: "Branding", label: "Brand Identity" },
-            { id: "Animation", label: "Motion Graphics" },
-            { id: "Combo", label: "All‑in‑One" },
-          ].map((tab) => {
-            const isActive = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                style={{ fontFamily: "var(--font-Poppins)" }}
-                type="button"
-                role="tab"
-                aria-controls={tab.id}
-                aria-selected={isActive ? "true" : "false"}
-                onClick={() => setActiveTab(tab.id)}
-                className={[
-                  "whitespace-nowrap px-4 md:px-5 py-2 text-[14px] md:text-[15px] font-medium rounded-full transition-all",
-                  isActive
-                    ? "bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-md shadow-orange-500/35"
-                    : "text-slate-700 hover:bg-slate-100",
-                ].join(" ")}
-              >
-                {tab.label}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+          {tab.label}
+        </button>
+      );
+    })}
+  </div>
+</div>
+
+{/* SUB TAB NAV (depends on active main) */}
+{currentSubTabs.length > 0 && (
+  <div className="mb-6">
+    <div
+      className="inline-flex w-full md:w-auto rounded-full bg-slate-50 border border-slate-200 p-1 overflow-x-auto scrollbar-hide"
+      role="tablist"
+    >
+      {currentSubTabs.map((sub) => {
+        const isActive = activeSubTab === sub.id;
+        return (
+          <button
+            key={sub.id}
+            style={{ fontFamily: "var(--font-Poppins)" }}
+            type="button"
+            role="tab"
+            aria-selected={isActive ? "true" : "false"}
+            onClick={() => setActiveSubTab(sub.id)}
+            className={[
+              "whitespace-nowrap px-3 md:px-4 py-1.5 text-[13px] md:text-[14px] font-medium rounded-full transition-all",
+              isActive
+                ? "bg-white text-orange-500 shadow-sm border border-orange-300"
+                : "text-slate-700 hover:bg-white/80",
+            ].join(" ")}
+          >
+            {sub.label}
+          </button>
+        );
+      })}
+    </div>
+  </div>
+)}
 
       {/* TAB CONTENT */}
       <div
-        id="default-tab-content"
-        className="space-y-6 rounded-3xl bg-white/80 border border-slate-200 p-4 sm:p-5 shadow-[0_20px_60px_rgba(15,23,42,0.12)]"
-      >
-        {/* LOGO */}
-        <TabPanel id="Logo" activeTab={activeTab}>
-          <PricingGrid data={pricingLogoData} contactData={contactData} />
-        </TabPanel>
+  id="default-tab-content"
+  className="space-y-6 rounded-3xl bg-white/80 border border-slate-200 p-4 sm:p-5 shadow-[0_20px_60px_rgba(15,23,42,0.12)]"
+>
+  <TabPanel id="Logo" activeSubTab={activeSubTab}>
+    <PricingGrid data={pricingLogoData} contactData={contactData} />
+  </TabPanel>
 
-        {/* WEB */}
-        <TabPanel id="webPackage" activeTab={activeTab}>
-          <PricingGrid data={pricingWebData} contactData={contactData} />
-        </TabPanel>
+  <TabPanel id="webPackage" activeSubTab={activeSubTab}>
+    <PricingGrid data={pricingWebData} contactData={contactData} />
+  </TabPanel>
 
-        {/* ILLUSTRATION */}
-        <TabPanel id="Illustration" activeTab={activeTab}>
-          <PricingGrid
-            data={pricingIllustrationData}
-            contactData={contactData}
-          />
-        </TabPanel>
+  <TabPanel id="Illustration" activeSubTab={activeSubTab}>
+    <PricingGrid data={pricingIllustrationData} contactData={contactData} />
+  </TabPanel>
 
-        {/* ECOMMERCE */}
-        <TabPanel id="Ecommerce" activeTab={activeTab}>
-          <PricingGrid data={pricingEcommerceData} contactData={contactData} />
-        </TabPanel>
+  <TabPanel id="Ecommerce" activeSubTab={activeSubTab}>
+    <PricingGrid data={pricingEcommerceData} contactData={contactData} />
+  </TabPanel>
 
-        {/* SEO */}
-        <TabPanel id="Seo" activeTab={activeTab}>
-          <PricingGrid data={pricingSeoData} contactData={contactData} />
-        </TabPanel>
+  <TabPanel id="Seo" activeSubTab={activeSubTab}>
+    <PricingGrid data={pricingSeoData} contactData={contactData} />
+  </TabPanel>
 
-        {/* BRANDING */}
-        <TabPanel id="Branding" activeTab={activeTab}>
-          <PricingGrid data={pricingBrandingData} contactData={contactData} />
-        </TabPanel>
+  <TabPanel id="Branding" activeSubTab={activeSubTab}>
+    <PricingGrid data={pricingBrandingData} contactData={contactData} />
+  </TabPanel>
 
-        {/* ANIMATION */}
-        <TabPanel id="Animation" activeTab={activeTab}>
-          <PricingGrid data={pricingAnimationData} contactData={contactData} />
-        </TabPanel>
+  <TabPanel id="Animation" activeSubTab={activeSubTab}>
+    <PricingGrid data={pricingAnimationData} contactData={contactData} />
+  </TabPanel>
 
-        {/* COMBO */}
-        <TabPanel id="Combo" activeTab={activeTab}>
-          <PricingGrid data={pricingAllData} contactData={contactData} />
-        </TabPanel>
-      </div>
+  <TabPanel id="Combo" activeSubTab={activeSubTab}>
+    <PricingGrid data={pricingAllData} contactData={contactData} />
+  </TabPanel>
+</div>
     </div>
   </section>
     );
