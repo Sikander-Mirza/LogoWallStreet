@@ -10,16 +10,12 @@ import sliderImgFour from '../../assets/images/portfolio-4.jpg';
 
 function OurProject() {
   const images = [
-    "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765389210/e7riimxpdbrxtfivhv5u.jpg",
-    "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765389210/oven6lbz3azad8xptaph.jpg",
-    "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765389210/fporrqrmxirfruwysbdo.jpg",
-    "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765389211/fqbzhrxqp3e0kzfuc4ck.jpg",
-    "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765389209/yumewcccwguwuxgtjiv5.jpg",
-    "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765389209/lezs11nkzux2nodinnh3.jpg",
-    "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765389210/fzb5nxruhs1xjsxlijio.jpg",
-    "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765389209/n3idgurjadione9t1xyu.jpg",
-    "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765389209/mvgsjutdlynfx7ohbkhz.jpg",
-    "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765389209/l6rlzsx6rsts0jz2344i.jpg"
+    "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765453932/htaadq3q573fwtmqojef.jpg",
+    "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765453932/mluzdyp9dpo9nuexkvkr.jpg",
+    "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765453931/l7lnn75hjrkgbhcatfi3.jpg",
+    "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765453931/ytfqbol5fbj6j6wshfl5.jpg",
+    "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765453931/qjqh79t6vymqlg5owzb7.jpg",
+ 
   ];
 
   const settings = {
@@ -74,7 +70,7 @@ function OurProject() {
         />
       </div>
 
-      <div className="w-full max-w-[1200px] mx-auto relative bottom-[150px] sm:bottom-[80px] md:bottom-[100px]">
+      <div className="w-full max-w-[1300px] mx-auto relative bottom-[150px] sm:bottom-[80px] md:bottom-[100px]">
         <Slider {...settings}>
           {images.map((image, index) => (
             <div key={index}>

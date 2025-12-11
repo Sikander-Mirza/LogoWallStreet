@@ -37,7 +37,7 @@ function AboutUs() {
         >
           <img
             className="w-[500px] md:w-[580px] lg:w-[530px] object-contain translate-y-4 md:translate-y-8"
-            src={AboutImg}
+            src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765453931/m2h1ravb9t9rbb96jib2.jpg"
             alt="banner image"
           />
 
@@ -89,13 +89,14 @@ function AboutUs() {
           viewport={{ once: true, amount: 0.3 }}
         >
           <HeroHeading
-          style={{ fontFamily: "var(--font-Playfair)" }}
+          style={{ fontFamily: "var(--font-Poppins)" }}
+          className=""
             preTitle="About the Logo Wall Street LLC"
             title="Top Logo Design Company"
             subtitle={`At The Logo Wall Street LLC, we understand the challenges small businesses face when starting out — that’s why we’re here to be your partner in success. As a leading logo design agency in the USA, we offer a full range of creative services to help you strengthen your brand and achieve your marketing goals.`}
             subtitle2={`Our skilled team specializes in crafting unique, impactful logos that truly represent your brand identity. Every design is tailored to your specific needs, ensuring your logo stands out in a competitive market.`}
             subtitle3={`At The Logo Wall Street LLC, we take pride in our commitment to quality and creativity. Let us help you build a strong visual identity and elevate your brand presence in the digital world.`}
-            textColor="text-black"
+            textColor="text-gray-600"
           />
         </motion.div>
       </div>

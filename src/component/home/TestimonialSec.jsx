@@ -17,7 +17,7 @@ function TestimonialSec() {
       image:
         "https://i0.wp.com/pencheffphoto.com/wp-content/uploads/2017/02/12-4887-pp_gallery/016-Headshots.jpg?resize=1641%2C1313&ssl=1",
       text: "Very stress free process. I answered a few questions and told them what I was looking for. Then BOOM within the first rounds of logo designs I found the logo perfect for my company! Great company and very easy to work with! I'd recommend them for you logo process!",
-      rating: 5,
+      rating: 4,
     },
     {
       id: 2,
@@ -35,7 +35,7 @@ function TestimonialSec() {
       image:
         "https://upload.wikimedia.org/wikipedia/commons/4/4c/Ricky_JeanFrancois_%2815%29_%28cropped%29.jpg",
       text: "Guys are great did a awesome job on my logo worked with me every time I asked to change something and kept going till I was happy great group of people and designers would definitely recommend if anyone needs a logo for there business new or established great work",
-      rating: 5,
+      rating: 4.5,
     },
     {
       id: 4,

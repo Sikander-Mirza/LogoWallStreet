@@ -62,7 +62,7 @@ function WhyChoose() {
                                         <h3 style={{ fontFamily: "var(--font-Playfair)" }} className="text-[20px] font-bold">
                                             {item.title}    
                                         </h3>
-                                        <p style={{ fontFamily: "var(--font-Poppins)" }} className="text-[14px] leading-[20px] mt-1">
+                                        <p style={{ fontFamily: "var(--font-Poppins)" }} className="text-[14px] leading-[20px] mt-1 text-gray-600">
                                             {item.description}
                                         </p>
                                     </div>
@@ -81,7 +81,7 @@ function WhyChoose() {
                 >
                     <img
                         className="w-full md:translate-y-8"
-                        src={whyImg}
+                        src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765453930/gyjvj1xzgqwovar7yvg4.png"
                         alt="banner image"
                     />
                 </motion.div>
