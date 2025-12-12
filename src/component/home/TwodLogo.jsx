@@ -32,7 +32,7 @@ function TwodLogo() {
         >
           <img
             className="w-full md:translate-y-8"
-            src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765453932/zxkekw8hoab3ov4lgwqc.png"
+            src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765538263/gjgoeucmx1wz589cccqc.png"
             alt="2D logo examples"
           />
         </motion.div>

@@ -81,7 +81,7 @@ function WhyChoose() {
                 >
                     <img
                         className="w-full md:translate-y-8"
-                        src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765453930/gyjvj1xzgqwovar7yvg4.png"
+                        src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765538263/jfrj0ulfiqdgsclz0iwp.png"
                         alt="banner image"
                     />
                 </motion.div>

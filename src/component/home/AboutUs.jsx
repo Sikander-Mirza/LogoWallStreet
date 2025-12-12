@@ -37,7 +37,7 @@ function AboutUs() {
         >
           <img
             className="w-[500px] md:w-[580px] lg:w-[530px] object-contain translate-y-4 md:translate-y-8"
-            src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765453931/m2h1ravb9t9rbb96jib2.jpg"
+            src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765538263/r6g5q99wlhcuygatfm3l.png"
             alt="banner image"
           />
 

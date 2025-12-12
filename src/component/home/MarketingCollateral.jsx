@@ -70,7 +70,7 @@ function MarketingCollateral() {
         >
           <img
             className="w-full md:translate-y-8"
-            src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765453932/udcymdjlio0dou4wienx.png"
+            src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765538281/bipzzytwvxoi4mowr4gl.png"
             alt="Marketing collateral example"
           />
         </motion.div>
