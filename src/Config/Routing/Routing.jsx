@@ -21,12 +21,14 @@ import VideoAnim from '../../pages/VideoAnimation/VideoAnim.jsx';
 import CopyWriting from '../../pages/CopyWriting/CopyWriting.jsx';
 import { ScrollRestoration, Outlet } from "react-router-dom";
 import ScrollToHashElement from "../../component/others/ScrollToHashElement.jsx";
+import ChatWidget from "../../component/ChatWidget/ChatWidget.jsx";
 
 function Layout() {
   return (
     <>
       <Navbar />
       <ScrollToHashElement/>
+      <ChatWidget/>
       <ScrollRestoration />
       <Outlet />
     </>
