@@ -109,7 +109,7 @@ function HeroSec() {
     mx-auto
     translate-y-2 md:translate-y-4
   "
-  src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765538263/ykfd4lctixbtnd3kczkk.png"
+  src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765825047/e9offrtam5l9pohuxkqh.png"
   alt="banner image"
           />
 

@@ -34,7 +34,7 @@ function Animation() {
         >
           <img
             className="w-full md:translate-y-8"
-            src={AnimationImg}
+            src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765825047/zeozqcdzdmzy5iicssbl.png"
             alt="Animated logo examples"
           />
         </motion.div>

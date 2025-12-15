@@ -69,7 +69,7 @@ function ThreedLogo() {
         >
           <img
             className="w-full md:translate-y-8"
-            src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765538264/qvclz5udlzf4eavo8vnn.png"
+            src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765825047/uytedgpibbfkmn0i7l8f.png"
             alt="3D logo examples"
           />
         </motion.div>
