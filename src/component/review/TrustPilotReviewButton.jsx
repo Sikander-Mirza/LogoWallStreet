@@ -1,5 +1,4 @@
 import React from "react";
-import { FiEdit3 } from "react-icons/fi";
 
 const TRUSTPILOT_REVIEW_URL =
   "https://www.trustpilot.com/evaluate/thelogowallstreet.com";
@@ -14,24 +13,25 @@ export default function TrustpilotReviewButton() {
       type="button"
       onClick={handleClick}
       className="
-        fixed bottom-18 right-4
-        flex items-center gap-2
-        rounded-full
+        fixed
+        top-1/2 right-0
+        -translate-y-1/2
+        z-50
         bg-[#ff7a1a]
-        px-5 sm:px-6 py-2.5
-        text-sm sm:text-base font-semibold text-white
-        shadow-[0_0_40px_rgba(255,122,26,0.6)]
-        hover:shadow-[0_0_55px_rgba(255,122,26,0.9)]
-        hover:bg-[#ff861f]
+        text-white
+        font-semibold
+        text-xs sm:text-sm
+        tracking-[0.16em]
+        px-3 py-4 sm:px-4 sm:py-5
+        rounded-tl-xl rounded-bl-xl
+        shadow-[0_10px_40px_rgba(15,23,42,0.6)]
+        hover:translate-x-[-2px]
         transition-transform transition-shadow duration-200
-        hover:scale-[1.03]
-        
       "
-      style={{ fontFamily: "var(--font-Poppins)" }}
+      style={{ writingMode: "vertical-rl", fontFamily: "var(--font-Poppins)" }}
       aria-label="Write a review on Trustpilot"
     >
-      <FiEdit3 className="h-4 w-4" />
-      <span>Write a Review</span>
+      WRITE A REVIEW
     </button>
   );
 }
