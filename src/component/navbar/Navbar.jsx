@@ -57,8 +57,27 @@ export default function Navbar() {
         {/* Right side */}
         <div className="flex items-center space-x-3">
           <div className="hidden md:block">
-            <Button text="Get Started" />
-          </div>
+  <button
+    type="button"
+    className="
+      inline-flex items-center justify-center
+      rounded-full
+      bg-gradient-to-r from-orange-500 via-red-500 to-pink-500
+      px-6 py-2.5
+      text-sm font-semibold uppercase tracking-wide
+      text-white
+      shadow-[0_0_30px_rgba(249,115,22,0.5)]
+      hover:shadow-[0_0_40px_rgba(249,115,22,0.8)]
+      hover:scale-[1.02]
+      transition-transform transition-shadow duration-200
+      focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 focus:ring-offset-white
+    "
+    style={{ fontFamily: "var(--font-Poppins)" }}
+    // onClick={() => navigate("/contact-us")} // or whichever action you want
+  >
+    Get Started
+  </button>
+</div>
 
           {/* Mobile menu button */}
           <button
