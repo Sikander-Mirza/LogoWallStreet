@@ -1,6 +1,6 @@
 import React from "react";
 import ctaBg from "../../assets/images/bg/bg-testimonial.jpg"; // change to your image
-
+import { Link } from "react-router-dom";
 export default function CtaPerfectLogo() {
   return (
     <section
@@ -34,8 +34,9 @@ export default function CtaPerfectLogo() {
         {/* Buttons */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
           {/* Primary CTA with orange glow */}
-          <button
-            type="button"
+
+          <Link
+            to="/contact-us"
             className="
               relative inline-flex items-center justify-center
               rounded-full px-8 sm:px-10 py-3 sm:py-3.5
@@ -49,8 +50,8 @@ export default function CtaPerfectLogo() {
             style={{ fontFamily: "var(--font-Poppins)" }}
           >
             Get Started Today
-          </button>
-
+          </Link>
+          
           {/* Secondary CTA – outline button */}
           <button
             type="button"

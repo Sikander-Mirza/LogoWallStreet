@@ -5,7 +5,35 @@ const PricingCard = ({ item, contactData, highlight }) => {
     item.oldPrice && item.price
       ? Math.round(((item.oldPrice - item.price) / item.oldPrice) * 100 || 0)
       : 0;
+const handleOrderNow = async () => {
+  try {
+    // create a short human-readable description from first few features
+    const shortDescription = item.features.slice(0, 4).join(", ");
 
+    const res = await fetch(
+      "http://localhost:4000/payments/create-checkout-session",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          packageName: item.packageName,
+          price: item.price,
+          description: shortDescription,
+        }),
+      }
+    );
+
+    const data = await res.json();
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      console.error("No URL returned from Stripe session:", data);
+    }
+  } catch (err) {
+    console.error("Checkout error:", err);
+    alert("Unable to start payment. Please try again later.");
+  }
+};
   return (
     <div
       className={[
@@ -85,15 +113,16 @@ const PricingCard = ({ item, contactData, highlight }) => {
 
       {/* Footer CTA + contact */}
       <div className="mt-4 px-4 pb-5 pt-2 flex items-end justify-between gap-3">
-        <Button
-          className={[
-            "mt-4 rounded-full px-6 py-2 text-sm font-semibold",
-            highlight
-              ? "bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white shadow-lg shadow-orange-500/40 hover:shadow-orange-500/60"
-              : "bg-slate-900 text-white hover:bg-slate-800",
-          ].join(" ")}
-          text="Order Now"
-        />
+      <Button
+  onClick={handleOrderNow}
+  className={[
+    "mt-4 rounded-full px-6 py-2 text-sm font-semibold",
+    
+       "bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white shadow-lg shadow-orange-500/40 hover:shadow-orange-500/60"
+           
+  ].join(" ")}
+  text="Order Now"
+/>
 
         {contactData?.[0] && (
           <div className="flex items-center gap-2">

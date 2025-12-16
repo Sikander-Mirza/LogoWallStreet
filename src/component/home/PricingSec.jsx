@@ -43,7 +43,7 @@ const mainTabs = [
 
 
 function PricingSec() {
-   const [activeMainTab, setActiveMainTab] = useState("Graphic");
+const [activeMainTab, setActiveMainTab] = useState("Graphic");
 const [activeSubTab, setActiveSubTab] = useState("Logo");
 
 const currentMain = mainTabs.find((t) => t.id === activeMainTab);
@@ -724,7 +724,7 @@ const currentSubTabs = currentMain?.subTabs || [];
     ];
 
     const contactData = [
-        { phoneNumber: "012345678990" },
+        { phoneNumber: "(920) 504-3860" },
     ];
 
 
@@ -784,38 +784,44 @@ const currentSubTabs = currentMain?.subTabs || [];
 
       {/* TAB NAV */}
       {/* MAIN TAB NAV */}
-<div className="mt-2 mb-3 flex justify-center">
- <div
-  className="mt-2 mb-3 inline-flex items-center justify-center w-full md:w-auto rounded-full bg-white border border-slate-200 p-1 overflow-x-auto scrollbar-hide"
-  role="tablist"
->
-    {mainTabs.map((tab) => {
-      const isActive = activeMainTab === tab.id;
-      return (
-        <button
-          key={tab.id}
-          style={{ fontFamily: "var(--font-Poppins)" }}
-          type="button"
-          role="tab"
-          aria-selected={isActive ? "true" : "false"}
-          onClick={() => {
-            setActiveMainTab(tab.id);
-            // default to first sub tab when switching main
-            if (tab.subTabs && tab.subTabs.length > 0) {
-              setActiveSubTab(tab.subTabs[0].id);
-            }
-          }}
-          className={[
-            "whitespace-nowrap px-4 md:px-5 py-2 text-[14px] md:text-[15px] font-medium rounded-full transition-all",
-            isActive
-              ? "bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-md shadow-orange-500/35"
-              : "text-slate-700 hover:bg-slate-100",
-          ].join(" ")}
-        >
-          {tab.label}
-        </button>
-      );
-    })}
+<div className="mt-2 mb-3">
+  {/* Outer wrapper handles horizontal scrolling on small screens */}
+  <div className="flex justify-start md:justify-center overflow-x-auto scrollbar-hide">
+    <div
+      className="
+        inline-flex items-center
+        rounded-full bg-white border border-slate-200 p-1
+        min-w-max        /* ensures contents don't shrink */
+      "
+      role="tablist"
+    >
+      {mainTabs.map((tab) => {
+        const isActive = activeMainTab === tab.id;
+        return (
+          <button
+            key={tab.id}
+            style={{ fontFamily: "var(--font-Poppins)" }}
+            type="button"
+            role="tab"
+            aria-selected={isActive ? "true" : "false"}
+            onClick={() => {
+              setActiveMainTab(tab.id);
+              if (tab.subTabs && tab.subTabs.length > 0) {
+                setActiveSubTab(tab.subTabs[0].id);
+              }
+            }}
+            className={[
+              "whitespace-nowrap px-4 md:px-5 py-2 text-[14px] md:text-[15px] font-medium rounded-full transition-all",
+              isActive
+                ? "bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-md shadow-orange-500/35"
+                : "text-slate-700 hover:bg-slate-100",
+            ].join(" ")}
+          >
+            {tab.label}
+          </button>
+        );
+      })}
+    </div>
   </div>
 </div>
 

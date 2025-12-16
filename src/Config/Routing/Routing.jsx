@@ -22,6 +22,7 @@ import CopyWriting from '../../pages/CopyWriting/CopyWriting.jsx';
 import { ScrollRestoration, Outlet } from "react-router-dom";
 import ScrollToHashElement from "../../component/others/ScrollToHashElement.jsx";
 import ChatWidget from "../../component/ChatWidget/ChatWidget.jsx";
+import SuccessPage from "../../pages/Success/Success.jsx";
 
 function Layout() {
   return (
@@ -54,6 +55,7 @@ const router = createBrowserRouter([
       { path: "/Illustration", element: <Illustration /> },
       { path: "/VideoAnimation", element: <VideoAnim /> },
       { path: "/copywriting", element: <CopyWriting /> },
+      { path: "/Success", element: <SuccessPage/> },
     ],
   },
 ]);

@@ -1,5 +1,6 @@
 import React from "react";
 import { FaStar, FaCheckCircle, FaQuoteRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import HeroHeading from "../others/Heading";
 import testiBg from "../../assets/images/bg/bg-testimonial.jpg";
 import userImg from "../../assets/images/user-01.jpg";
