@@ -100,7 +100,7 @@ function HeroSec() {
         >
           <img
             className="
-    w-[300px] 
+    w-full 
     sm:w-[360px] 
     md:w-[420px] 
     lg:w-[460px] 

@@ -1,14 +1,11 @@
 import React from "react";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaCheckCircle, FaQuoteRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import HeroHeading from "../others/Heading";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import userImg from "../../assets/images/user-01.jpg";
 import testiBg from "../../assets/images/bg/bg-testimonial.jpg";
+import userImg from "../../assets/images/user-01.jpg";
 
 function TestimonialSec() {
-  // Testimonial data array
   const testimonials = [
     {
       id: 1,
@@ -16,8 +13,9 @@ function TestimonialSec() {
       title: "Developer",
       image:
         "https://i0.wp.com/pencheffphoto.com/wp-content/uploads/2017/02/12-4887-pp_gallery/016-Headshots.jpg?resize=1641%2C1313&ssl=1",
-      text: "Very stress free process. I answered a few questions and told them what I was looking for. Then BOOM within the first rounds of logo designs I found the logo perfect for my company! Great company and very easy to work with! I'd recommend them for you logo process!",
+      text: "Very stress free process. I answered a few questions and told them what I was looking for. Then BOOM within the first rounds of logo designs I found the logo perfect for my company! Great company and very easy to work with! I'd recommend them for your logo process!",
       rating: 4,
+      date: "September 3, 2025",
     },
     {
       id: 2,
@@ -25,124 +23,134 @@ function TestimonialSec() {
       title: "CEO at ABC Corp",
       image:
         "https://t3.ftcdn.net/jpg/01/04/93/56/360_F_104935633_9dB5CW1aSk35RYSXQPYOCudPMku6vMFv.jpg",
-      text: "I sent an existing logo to be edited, Jay sent me a couple of logos they designed as well and that I liked much better. I also ordered some business cards with a code that takes one directly to my website. These guys work in a very timely manner and are great to work with.I Thank you once again!",
+      text: "I sent an existing logo to be edited. Jay sent me a couple of logos they designed that I liked much better. They also created business cards with a code that links directly to my website. They work in a very timely manner and are great to work with.",
       rating: 5,
+      date: "August 18, 2025",
     },
     {
       id: 3,
-      name: "Clyde James",
-      title: "Marketing Head at DEF Inc.",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/4/4c/Ricky_JeanFrancois_%2815%29_%28cropped%29.jpg",
-      text: "Guys are great did a awesome job on my logo worked with me every time I asked to change something and kept going till I was happy great group of people and designers would definitely recommend if anyone needs a logo for there business new or established great work",
-      rating: 4.5,
-    },
-    {
-      id: 4,
       name: "Hendrik Pruyn",
       title: "Marketing Head at DEF Inc.",
       image: userImg,
-      text: "From the start to completion , Clifford made the process enjoyable, quickly providing many very creative logos, and once we actually spoke and he was able to throughly understand the concept and the very personal meaning behind the concept, I believe the designer (s) Even stepped it up a notch..",
+      text: "From start to completion, Clifford made the process enjoyable, quickly providing many creative logos. Once he understood the concept and the personal meaning behind it, the designers really stepped it up. Pricing was fair and I’ll definitely use them again.",
       rating: 5,
+      date: "September 3, 2025",
     },
   ];
 
-  const testiCaro = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    autoplay: false,
-    autoplaySpeed: 3000,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    centerPadding: "20px",
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: "15px",
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: "10px",
-        },
-      },
-    ],
-  };
-
   return (
     <section
-      className="px-8 py-18"
+      className="px-4 md:px-8 py-16 md:py-20"
       style={{
-        backgroundImage: `linear-gradient(#0c1771, rgba(0, 0, 255, 0.5)), url(${testiBg})`,
+        backgroundImage: `linear-gradient(#09196e, #050b2a), url(${testiBg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="text-center">
-        <HeroHeading
-          preTitle="Testimonials"
-          title="What They Say About Us"
-          justifyContent="justify-center"
-          subtitle="Don’t just take our word for it! Read what our satisfied clients have to say about their experience working with us. Check out our client reviews below to see how we’ve helped others achieve their goals."
-        />
-      </div>
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8 md:mb-10">
+          <HeroHeading
+            preTitle="Testimonials"
+            title="5‑Star Reviews from Trustpilot"
+            justifyContent="justify-center"
+            subtitle="See what our happy clients say about working with The Logo Wall Street. These are real reviews from real businesses who trusted us with their brand."
+            textColor="text-white"
+          />
+        </div>
 
-      <div className="mt-4 px-6">
-        <Slider {...testiCaro}>
-          {testimonials.map((testimonial) => (
+        {/* 3‑card grid (1/2/3 responsive) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {testimonials.map((t) => (
             <div
-              key={testimonial.id}
-              className="bg-[#eeee] py-6 px-10 rounded-xl flex flex-col h-full"
+              key={t.id}
+              className="
+                relative bg-[#0b1238]
+                rounded-3xl px-6 py-6 md:px-7 md:py-7
+                shadow-[0_18px_50px_rgba(0,0,0,0.6)]
+                border border-[#1a234f]
+                h-full flex flex-col
+                group
+                transition-all duration-300
+                hover:shadow-[0_24px_70px_rgba(249,115,22,0.45)]
+                hover:border-orange-400/80
+                hover:bg-gradient-to-b hover:from-[#0b1238] hover:via-[#1f2450] hover:to-[#ff7a1a20]
+              "
             >
-              <p
-                style={{ fontFamily: "var(--font-Poppins)" }}
-                className="text-[16px] h-[220px] flex-grow"
-              >
-                {testimonial.text}
-              </p>
+              {/* Orange quote badge */}
+              <div className="absolute -left-4 -top-4 h-10 w-10 rounded-full bg-orange-500 flex items-center justify-center shadow-lg">
+                <FaQuoteRight className="text-white text-sm" />
+              </div>
 
               {/* Stars */}
               <div className="mt-4 flex items-center gap-1">
-                {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <FaStar key={i} className="text-[#FDBA11] h-4 w-4" />
+                {Array.from({ length: Math.floor(t.rating) }).map((_, i) => (
+                  <FaStar key={i} className="text-[#FDC600] h-4 w-4" />
                 ))}
+                {t.rating - Math.floor(t.rating) >= 0.5 && (
+                  <FaStar className="text-[#FDC600] h-4 w-4 opacity-70" />
+                )}
               </div>
 
+              {/* Text */}
+              <p
+                style={{ fontFamily: "var(--font-Poppins)" }}
+                className="text-sm md:text-[15px] text-slate-100 mt-3 flex-grow leading-relaxed"
+              >
+                “{t.text}”
+              </p>
+
+              {/* Divider */}
+              <div className="mt-4 mb-3 border-t border-[#1f2958]" />
+
               {/* User info */}
-              <div className="flex flex-row items-center gap-6 mt-4 pt-4 border-t border-[#0c1771]">
-                <img
-                  className="w-[60px] h-[60px] rounded-full object-cover"
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                />
-                <div>
-                  <h3
-                    style={{ fontFamily: "var(--font-Playfair)" }}
-                    className="text-[20px]"
-                  >
-                    {testimonial.name}
-                  </h3>
-                  <h5
-                    style={{ fontFamily: "var(--font-Playfair)" }}
-                    className="text-[15px]"
-                  >
-                    {testimonial.title}
-                  </h5>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <img
+                    className="w-10 h-10 md:w-11 md:h-11 rounded-full object-cover border border-orange-400"
+                    src={t.image}
+                    alt={t.name}
+                  />
+                  <div>
+                    <h3
+                      style={{ fontFamily: "var(--font-Playfair)" }}
+                      className="text-sm md:text-base font-semibold text-white"
+                    >
+                      {t.name}
+                    </h3>
+                    <p className="text-[11px] text-slate-300">{t.date}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1 text-[11px] text-emerald-300">
+                  <FaCheckCircle className="h-3 w-3" />
+                  <span>Verified</span>
                 </div>
               </div>
             </div>
           ))}
-        </Slider>
+        </div>
+
+        {/* View More button */}
+        <div className="mt-10 flex justify-center">
+          <Link
+            to="/review"
+            className="
+              inline-flex items-center justify-center
+              rounded-full px-8 py-3
+              text-sm md:text-base font-semibold
+              bg-gradient-to-r from-[#ff7a1a] via-[#ff861f] to-[#ff5b00]
+              text-white
+              shadow-[0_0_40px_rgba(255,122,26,0.6)]
+              hover:shadow-[0_0_60px_rgba(255,122,26,0.9)]
+              hover:scale-[1.03]
+              transition-transform transition-shadow duration-200
+              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#ff7a1a] focus:ring-offset-transparent
+            "
+            style={{ fontFamily: "var(--font-Poppins)" }}
+          >
+            View More
+          </Link>
+        </div>
       </div>
     </section>
   );

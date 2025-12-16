@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FiMessageSquare, FiSend, FiX } from "react-icons/fi";
+import ReactMarkdown from "react-markdown";
 
-const CHAT_API_URL = "http://localhost:4000/chat"; // backend URL
+const CHAT_API_URL = "https://logo-chat.vercel.app/chat"; // backend URL
 
 function ChatWidget() {
   const [open, setOpen] = useState(false);
@@ -112,30 +113,31 @@ function ChatWidget() {
 
           {/* Messages area – flex-1 + overflow-y-auto */}
           <div className="flex-1 px-3 py-3 space-y-2 overflow-y-auto bg-slate-50">
-            {messages.map((m, i) => (
-              <div
-                key={i}
-                className={`flex mb-1 ${
-                  m.role === "user" ? "justify-end" : "justify-start"
-                }`}
-              >
-                {m.role === "assistant" && (
-                  <div className="mr-2 mt-1 flex h-7 w-7 items-center justify-center rounded-full bg-slate-900 text-white text-xs shrink-0">
-                    LW
-                  </div>
-                )}
+           
 
-                <div
-                  className={`max-w-[78%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${
-                    m.role === "user"
-                      ? "bg-blue-500 text-white rounded-br-none"
-                      : "bg-white text-slate-900 border border-slate-200 rounded-bl-none"
-                  }`}
-                >
-                  {m.content}
-                </div>
-              </div>
-            ))}
+
+{messages.map((m, i) => (
+  <div
+    key={i}
+    className={m.role === "user" ? "text-right" : "text-left"}
+  >
+    <span
+      className={
+        m.role === "user"
+          ? "inline-block bg-blue-500 text-white px-2 py-1 rounded-lg"
+          : "inline-block bg-slate-100 text-slate-900 px-2 py-1 rounded-lg text-left"
+      }
+    >
+      {m.role === "assistant" ? (
+        <div className="prose prose-sm max-w-none">
+          <ReactMarkdown>{m.content}</ReactMarkdown>
+        </div>
+      ) : (
+        m.content
+      )}
+    </span>
+  </div>
+))}
             {loading && (
               <div className="text-left text-xs text-slate-500 mt-1">
                 Typing…

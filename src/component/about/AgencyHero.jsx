@@ -36,9 +36,9 @@ export default function AgencyHero() {
     }, [isInView]);
 
     const expertise = [
-        { name: 'Digital Marketing', percentage: 95, icon: TrendingUp },
-        { name: 'Branding Identity', percentage: 98, icon: Target },
-        { name: 'Business Planning', percentage: 92, icon: Lightbulb }
+        { name: 'Brand Strategy & Discovery', percentage: 95, icon: TrendingUp },
+        { name: 'Logo & Visual Identity Design', percentage: 98, icon: Target },
+        { name: 'Typography & Color Psychology', percentage: 92, icon: Lightbulb }
     ];
 
     return (
