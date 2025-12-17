@@ -15,7 +15,7 @@ function OurProject() {
     "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765453931/l7lnn75hjrkgbhcatfi3.jpg",
     "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765453931/ytfqbol5fbj6j6wshfl5.jpg",
     "https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765453931/qjqh79t6vymqlg5owzb7.jpg",
- 
+
   ];
 
   const settings = {
@@ -24,31 +24,29 @@ function OurProject() {
     speed: 500,
     autoplay: true,
     autoplaySpeed: 3000,
+
+    // Default = desktop (width >= 1024)
     slidesToShow: 4,
     slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: '0',
+    centerMode: false,
+    arrows: true,
+
+    // These apply when WIDTH IS LESS THAN breakpoint
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1024,        // < 1024px
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
-          dots: true,
           arrows: false,
-          centerMode: true,
-          centerPadding: '15px',
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 640,         // < 640px (mobile)
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
-          dots: true,
           arrows: false,
-          centerMode: false,
-          centerPadding: '0',
         },
       },
     ],
@@ -70,14 +68,14 @@ function OurProject() {
         />
       </div>
 
-      <div className="w-full max-w-[1300px] mx-auto relative bottom-[150px] sm:bottom-[80px] md:bottom-[100px]">
+      <div className=" w-full max-w-[1300px] mx-auto relative bottom-[100px]  md:bottom-[100px]">
         <Slider {...settings}>
           {images.map((image, index) => (
-            <div key={index}>
+            <div key={index} className="px-1">
               <img
                 src={image}
                 alt={`Slide ${index + 1}`}
-                className="w-full rounded-[20px] px-2 h-[350px] object-cover"
+                className="w-full rounded-[16px] h-[200px] sm:h-[220px] md:h-[260px] lg:h-[300px] object-cover"
               />
             </div>
           ))}

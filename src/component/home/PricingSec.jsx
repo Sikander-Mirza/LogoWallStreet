@@ -731,7 +731,7 @@ const currentSubTabs = currentMain?.subTabs || [];
 
 
     return (
-       <section className="md:pt-10 md:pb-14 bg-slate-50 relative overflow-hidden">
+      <section className="mt-16 md:mt-10 md:pt-10 md:pb-14 bg-slate-50 relative overflow-hidden">
     {/* soft background shapes */}
     <div className="pointer-events-none absolute inset-0">
       <div className="absolute -top-32 -left-10 h-64 w-64 rounded-full bg-orange-300/25 blur-3xl" />
@@ -739,7 +739,7 @@ const currentSubTabs = currentMain?.subTabs || [];
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.9),_transparent_60%)]" />
     </div>
 
-    <div className="relative max-w-7xl mx-auto px-4 lg:px-8">
+    <div className="relative max-w-7xl mx-auto px-4 lg:px-8 mt-10">
       {/* Label + heading */}
       <div className="flex items-center gap-3 mb-3 md:mb-4">
         <span className="h-[2px] w-10 bg-orange-500" />

@@ -1,27 +1,45 @@
 // Navbar.jsx
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import MenuItems from "./MenuItems.jsx";
 import Button from "../button/Button";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [showServices, setShowServices] = useState(false);
+
+  // separate submenu state
+  const [showDesktopServices, setShowDesktopServices] = useState(false);
+  const [showMobileServices, setShowMobileServices] = useState(false);
 
   const desktopMenuRef = useRef(null);
+  const navigate = useNavigate();
 
-  const toggleServices = () => setShowServices((prev) => !prev);
-  const closeServices = () => setShowServices(false);
+  // desktop handlers
+  const toggleDesktopServices = () =>
+    setShowDesktopServices((prev) => !prev);
+  const closeDesktopServices = () => setShowDesktopServices(false);
 
-  // Close services submenu when clicking outside (desktop only)
+  // mobile handlers
+  const toggleMobileServices = () =>
+    setShowMobileServices((prev) => !prev);
+  const closeMobileServices = () => setShowMobileServices(false);
+
+  // close mobile menu (called when any non‑Services item is clicked)
+  const handleMobileItemClick = (path) => {
+    setIsOpen(false);
+    closeMobileServices();
+    if (path) navigate(path);
+  };
+
+  // Close desktop services submenu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
         desktopMenuRef.current &&
         !desktopMenuRef.current.contains(event.target)
       ) {
-        closeServices();
+        closeDesktopServices();
       }
     };
 
@@ -48,40 +66,31 @@ export default function Navbar() {
           className="hidden md:flex items-center space-x-8"
         >
           <MenuItems
-            showServices={showServices}
-            toggleServices={toggleServices}
-            closeServices={closeServices}
+            showServices={showDesktopServices}
+            toggleServices={toggleDesktopServices}
+            closeServices={closeDesktopServices}
           />
         </div>
 
         {/* Right side */}
         <div className="flex items-center space-x-3">
           <div className="hidden md:block">
-  <button
-    type="button"
-    className="
-      inline-flex items-center justify-center
-      rounded-full
-      bg-gradient-to-r from-orange-500 via-red-500 to-pink-500
-      px-6 py-2.5
-      text-sm font-semibold uppercase tracking-wide
-      text-white
-      shadow-[0_0_30px_rgba(249,115,22,0.5)]
-      hover:shadow-[0_0_40px_rgba(249,115,22,0.8)]
-      hover:scale-[1.02]
-      transition-transform transition-shadow duration-200
-      focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 focus:ring-offset-white
-    "
-    style={{ fontFamily: "var(--font-Poppins)" }}
-    // onClick={() => navigate("/contact-us")} // or whichever action you want
-  >
-    Get Started
-  </button>
-</div>
+            <button
+              type="button"
+              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 px-6 py-2.5 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_0_30px_rgba(249,115,22,0.5)] hover:shadow-[0_0_40px_rgba(249,115,22,0.8)] hover:scale-[1.02] transition-transform transition-shadow duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 focus:ring-offset-white"
+              style={{ fontFamily: "var(--font-Poppins)" }}
+              onClick={() => navigate("/contact-us")}
+            >
+              Get Started
+            </button>
+          </div>
 
           {/* Mobile menu button */}
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => {
+              setIsOpen((prev) => !prev);
+              if (isOpen) closeMobileServices();
+            }}
             className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100"
           >
             <i
@@ -95,10 +104,11 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 px-4 py-3 space-y-2 rounded-b-xl">
           <MenuItems
-            isMobile={true}
-            showServices={showServices}
-            toggleServices={toggleServices}
-            closeServices={closeServices}
+            isMobile
+            showServices={showMobileServices}
+            toggleServices={toggleMobileServices}   // only Services item should use this
+            closeServices={closeMobileServices}
+            onItemClick={handleMobileItemClick}     // all other items use this
           />
           <Button text="Get Started" className="w-full" />
         </div>

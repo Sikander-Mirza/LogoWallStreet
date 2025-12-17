@@ -32,7 +32,7 @@ function HeroSec() {
   className="bg-cover bg-center pt-28 pb-20 sm:pt-32 sm:pb-24 md:pt-36 md:pb-28 lg:pt-48 lg:pb-44 xl:pt-40 xl:pb-42"
   style={{ backgroundImage: `url(${HeroBg})` }}
 >
-      <div className="max-w-7xl mx-auto grid items-center grid-cols-1 md:grid-cols-2 gap-6 px-6 md:px-10 lg:px-16">
+      <div className="max-w-7xl mx-auto grid items-center grid-cols-1 md:grid-cols-2 gap-6 px-6 md:px-10 lg:px-16 mt-8">
         
         {/* LEFT CONTENT */}
         <motion.div

@@ -17,7 +17,7 @@ function Counter({ from = 0, to, duration = 2 }) {
 export default function ExperienceSection() {
   return (
     <section className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 mt-20">
-      <div className="grid lg:grid-cols-2 min-h-screen">
+      <div className="grid lg:grid-cols-2 min-h-screen mt-20">
         {/* LEFT SIDE – white content block */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -26,7 +26,7 @@ export default function ExperienceSection() {
           transition={{ duration: 0.6 }}
           className="bg-white p-6 sm:p-8 lg:p-12 flex flex-col justify-center"
         >
-          <div className="max-w-xl mx-auto space-y-6">
+          <div className="max-w-xl mx-auto space-y-6 mt-10">
             <div className="flex items-center gap-3">
               <div className="w-10 h-[3px] bg-orange-500" />
               <span

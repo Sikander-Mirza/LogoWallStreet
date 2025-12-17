@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 function MarketingCollateral() {
-  // Motion variants
   const textVariant = {
     hidden: { opacity: 0, y: 40 },
     visible: {
@@ -22,25 +21,40 @@ function MarketingCollateral() {
   };
 
   return (
-    <section className="bg-cover bg-center md:pt-6 md:pb-6">
-      <div className="max-w-7xl mx-auto grid items-center grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-4 lg:px-12">
-        {/* LEFT CONTENT */}
+    <section className="bg-cover bg-center py-10 md:py-12">
+      <div className="max-w-7xl mx-auto grid items-center grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-4 lg:px-12">
+        {/* IMAGE – first on mobile, second on desktop */}
         <motion.div
+          className="flex justify-center items-center order-1 md:order-2"
+          variants={imageVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <img
+            className="w-full max-w-md md:max-w-full md:translate-y-4"
+            src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765825048/p6zhalclc5uzftvkcl5a.png"
+            alt="Marketing collateral example"
+          />
+        </motion.div>
+
+        {/* CONTENT – second on mobile, first on desktop */}
+        <motion.div
+          className="order-2 md:order-1"
           variants={textVariant}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
         >
-          {/* Title */}
           <h2
-            className="text-4xl md:text-5xl font-extrabold text-[#0b183b]"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0b183b]"
             style={{ fontFamily: "var(--font-Playfair)" }}
           >
             Marketing Collateral
           </h2>
 
-          {/* Paragraphs */}
           <p
-            className="mt-10 text-gray-600 text-sm sm:text-base leading-relaxed"
+            className="mt-6 sm:mt-8 text-gray-600 text-sm sm:text-base leading-relaxed"
             style={{ fontFamily: "var(--font-Poppins)" }}
           >
             Our creative team specializes in crafting custom digital solutions
@@ -59,20 +73,6 @@ function MarketingCollateral() {
             solutions that drive success. Get in touch with us today to learn
             more!
           </p>
-        </motion.div>
-
-        {/* RIGHT IMAGE */}
-        <motion.div
-          className="flex justify-center items-center"
-          variants={imageVariant}
-          initial="hidden"
-          animate="visible"
-        >
-          <img
-            className="w-full md:translate-y-8"
-            src="https://res.cloudinary.com/dpbtmyh1r/image/upload/v1765825048/p6zhalclc5uzftvkcl5a.png"
-            alt="Marketing collateral example"
-          />
         </motion.div>
       </div>
     </section>

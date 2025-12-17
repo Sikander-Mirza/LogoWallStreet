@@ -128,7 +128,7 @@ export default function AgencyHero() {
                         <div className="absolute bottom-0 left-0 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-orange-500 rounded-full blur-2xl sm:blur-3xl -translate-x-1/4 translate-y-1/4"></div>
                     </div>
 
-                    <div className="relative z-10 max-w-xl">
+                    <div className="relative z-10 max-w-xl mt-10 mb-10">
                         {/* Small Title */}
                         <div className="flex items-center gap-3 mb-3 sm:mb-4">
                             <div className="h-0.5 w-10 sm:w-12 bg-gradient-to-r from-orange-500 to-red-500"></div>

@@ -39,8 +39,12 @@ export default function CTAConsultation() {
   return (
     <div 
       ref={sectionRef}
-      className="relative h-130 flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-800"
-    >
+      className="
+      relative h-130 flex items-center justify-center overflow-hidden
+      bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-800
+      py-70 sm:py-17 md:py-24
+    "
+  >
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center transition-transform duration-1000"
@@ -148,17 +152,6 @@ export default function CTAConsultation() {
        </div>
     </div>
 
-      <style jsx>{`
- 
-        @keyframes pulseGlow {
-          0%, 100% {
-            box-shadow: 0 0 20px rgba(249, 115, 22, 0.5), 0 0 40px rgba(249, 115, 22, 0.3);
-          }
-          50% {
-            box-shadow: 0 0 30px rgba(249, 115, 22, 0.7), 0 0 60px rgba(249, 115, 22, 0.5);
-          }
-        }
-      `}</style>
     </div>
   );
 }

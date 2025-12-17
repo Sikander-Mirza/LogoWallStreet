@@ -62,9 +62,9 @@ function OurServices() {
               textColor="black"
             />
           </div>
-          <div className="mt-3 md:mt-0 flex md:justify-end">
+          {/* <div className="mt-3 md:mt-0 flex md:justify-end">
             <Button text={"All Services"} />
-          </div>
+          </div> */}
         </div>
 
         {/* Cards grid with SAME styling */}
