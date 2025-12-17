@@ -11,7 +11,7 @@ const handleOrderNow = async () => {
     const shortDescription = item.features.slice(0, 4).join(", ");
 
     const res = await fetch(
-      "http://localhost:4000/payments/create-checkout-session",
+      "https://logo-chat-git-main-sikander-mirzas-projects.vercel.app/payments/create-checkout-session",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

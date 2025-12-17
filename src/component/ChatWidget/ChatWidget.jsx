@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { FiMessageSquare, FiSend, FiX } from "react-icons/fi";
 import ReactMarkdown from "react-markdown";
 
-const CHAT_API_URL = "http://localhost:4000/chat"; // backend URL
+const CHAT_API_URL = "https://logo-chat-git-main-sikander-mirzas-projects.vercel.app/chat"; // backend URL
  
 function ChatWidget() {
     const [open, setOpen] = useState(false);
