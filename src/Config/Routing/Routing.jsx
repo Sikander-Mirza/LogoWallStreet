@@ -29,7 +29,7 @@ function Layout() {
     <>
       <Navbar />
       <ScrollToHashElement/>
-      <ChatWidget/>
+      {/* <ChatWidget/> */}
       <ScrollRestoration />
       <Outlet />
     </>
