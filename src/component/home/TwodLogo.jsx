@@ -21,7 +21,7 @@ function TwodLogo() {
   };
 
   return (
-    <section className="bg-cover bg-center md:pt-6 md:pb-6">
+    <section className="bg-cover bg-center md:pt-1 md:pb-6">
       <div className="max-w-7xl mx-auto grid items-center grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-4 lg:px-12">
         {/* Left IMAGE */}
         <motion.div

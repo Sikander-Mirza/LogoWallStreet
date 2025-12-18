@@ -21,7 +21,7 @@ function MarketingCollateral() {
   };
 
   return (
-    <section className="bg-cover bg-center py-10 md:py-12">
+    <section className="bg-cover bg-center py-10 md:py-1">
       <div className="max-w-7xl mx-auto grid items-center grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-4 lg:px-12">
         {/* IMAGE – first on mobile, second on desktop */}
         <motion.div

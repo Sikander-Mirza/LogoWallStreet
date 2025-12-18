@@ -50,7 +50,7 @@ function OurServices() {
   ];
 
   return (
-    <section className="py-12 sm:py-14 md:py-16 lg:py-20">
+    <section className="py-12 sm:py-14 md:py-16 lg:py-20" >
       <div className="max-w-[1250px] mx-auto px-5 sm:px-8 md:px-12">
 
         {/* Heading + Button */}
