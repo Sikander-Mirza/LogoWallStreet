@@ -75,7 +75,7 @@ function OurProject() {
               <img
                 src={image}
                 alt={`Slide ${index + 1}`}
-                className="w-full rounded-[16px] h-[200px] sm:h-[220px] md:h-[260px] lg:h-[300px] object-cover"
+                className="w-full rounded-[16px] h-[300px] sm:h-[220px] md:h-[260px] lg:h-[350px] object-cover"
               />
             </div>
           ))}
