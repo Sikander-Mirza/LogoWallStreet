@@ -63,13 +63,13 @@ export default function StatsStrip() {
 
           {/* content */}
           <div
-  className="relative grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10"
-  style={{ fontFamily: "var(--font-Playfair)" }}
->
-  {stats.map((stat, index) => (
-    <StatItem key={stat.id} stat={stat} index={index} />
-  ))}
-</div>
+            className="relative grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10"
+            style={{ fontFamily: "var(--font-Playfair)" }}
+          >
+            {stats.map((stat, index) => (
+              <StatItem key={stat.id} stat={stat} index={index} />
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
