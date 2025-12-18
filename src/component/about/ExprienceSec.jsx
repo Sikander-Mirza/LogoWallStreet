@@ -111,36 +111,36 @@ export default function ExperienceSection() {
 
         {/* RIGHT SIDE – blue gradient background with white text */}
          {/* RIGHT SIDE – AgencyHero-style gradient with rounded circle image */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 p-6 sm:p-8 lg:p-12 flex flex-col justify-center overflow-hidden  shadow-[0_26px_80px_rgba(15,23,42,0.45)]"
-        >
-          {/* Background Shapes like AgencyHero */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 right-0 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-white rounded-full blur-2xl sm:blur-3xl translate-x-1/4 -translate-y-1/4" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-orange-500 rounded-full blur-2xl sm:blur-3xl -translate-x-1/4 translate-y-1/4" />
-          </div>
+       <motion.div
+  initial={{ opacity: 0, x: 40 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.6 }}
+  className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 p-6 sm:p-8 lg:p-12 flex flex-col justify-center overflow-hidden shadow-[0_26px_80px_rgba(15,23,42,0.45)]"
+>
+  {/* Background Shapes like AgencyHero */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute top-0 right-0 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-white rounded-full blur-2xl sm:blur-3xl translate-x-1/4 -translate-y-1/4" />
+    <div className="absolute bottom-0 left-0 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-orange-500 rounded-full blur-2xl sm:blur-3xl -translate-x-1/4 translate-y-1/4" />
+  </div>
 
-          {/* Your rounded circle image + orange shapes */}
-          <div className="relative z-10 flex justify-center items-center">
-            {/* Orange glow behind circle */}
-            <div className="absolute w-[380px] h-[380px] bg-orange-500 rounded-full -top-10 -right-4 blur-xl opacity-60" />
-            {/* Orange accent line */}
-            <div className="absolute w-32 h-3 bg-orange-400 rounded-full rotate-45 bottom-16 left-4 opacity-80" />
+  {/* Circular image + orange shapes */}
+  <div className="relative z-10 flex justify-center items-center mt-8 mb-8 sm:mt-10 sm:mb-10 md:mt-0 md:mb-0">
+    {/* Orange glow behind circle */}
+    <div className="absolute w-[380px] h-[380px] bg-orange-500 rounded-full -top-10 -right-4 blur-xl opacity-60" />
+    {/* Orange accent line */}
+    <div className="absolute w-32 h-3 bg-orange-400 rounded-full rotate-45 bottom-16 left-4 opacity-80" />
 
-            {/* Circular image with white border */}
-            <div className="relative overflow-hidden rounded-full shadow-2xl w-[320px] h-[320px] md:w-[380px] md:h-[380px] border-[12px] border-white">
-              <img
-                src={image}
-                alt="team"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </motion.div>
+    {/* Circular image with white border */}
+    <div className="relative overflow-hidden rounded-full shadow-2xl w-[320px] h-[320px] md:w-[380px] md:h-[380px] border-[12px] border-white">
+      <img
+        src={image}
+        alt="team"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+</motion.div>
       </div>
     </section>
   );

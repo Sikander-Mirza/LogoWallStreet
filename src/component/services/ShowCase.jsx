@@ -33,26 +33,26 @@ export default function ShowCase() {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[#07123b]/80 via-transparent to-transparent" />
 
               {/* floating stats card */}
-              <div className="absolute bottom-5 left-5 right-5 flex flex-wrap gap-3 justify-between">
-                <div className="rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 px-4 py-3 min-w-[9rem]">
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-orange-200 font-semibold">
-                    Avg. load time
-                  </p>
-                  <p className="mt-1 text-xl font-semibold">1.2s</p>
-                  <p className="text-[11px] text-slate-100/80">
-                    Optimized for performance
-                  </p>
-                </div>
-                <div className="rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 px-4 py-3 min-w-[9rem]">
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-emerald-200 font-semibold">
-                    Conversion lift
-                  </p>
-                  <p className="mt-1 text-xl font-semibold">+34%</p>
-                  <p className="text-[11px] text-slate-100/80">
-                    After redesign on average
-                  </p>
-                </div>
-              </div>
+              <div className="absolute bottom-5 left-5 right-5 grid grid-cols-2 gap-3">
+  <div className="rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 px-4 py-3 min-w-[9rem]">
+    <p className="text-[11px] uppercase tracking-[0.18em] text-orange-200 font-semibold">
+      Avg. load time
+    </p>
+    <p className="mt-1 text-xl font-semibold">1.2s</p>
+    <p className="text-[11px] text-slate-100/80">
+      Optimized for performance
+    </p>
+  </div>
+  <div className="rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 px-4 py-3 min-w-[9rem]">
+    <p className="text-[11px] uppercase tracking-[0.18em] text-emerald-200 font-semibold">
+      Conversion lift
+    </p>
+    <p className="mt-1 text-xl font-semibold">+34%</p>
+    <p className="text-[11px] text-slate-100/80">
+      After redesign on average
+    </p>
+  </div>
+</div>
             </div>
           </motion.div>
 

@@ -56,7 +56,7 @@ export default function AgencyHero() {
     backgroundAttachment: "fixed",
   }}
 >
-  {/* Blue tint + blur overlay (more transparent) */}
+  {/* Blue tint + blur overlay */}
   <div
     className="
       absolute inset-0
@@ -67,7 +67,13 @@ export default function AgencyHero() {
 
   <div className="relative z-10">
     {/* Main image card */}
-    <div className="relative rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-300 hover:scale-[1.02] mb-6 sm:mb-8">
+    <div
+      className="
+        relative rounded-2xl overflow-hidden shadow-2xl
+        transform transition-transform duration-300 hover:scale-[1.02]
+        mt-6 mb-4 sm:mt-0 sm:mb-8
+      "
+    >
       <img
         src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
         alt="Creative team collaboration"
@@ -77,42 +83,54 @@ export default function AgencyHero() {
     </div>
 
     {/* Expertise Section */}
-    <div className="bg-white/90 backdrop-blur-md rounded-xl p-6 sm:p-8 shadow-lg border border-slate-200">
-                            <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-4 sm:mb-6" style={{ fontFamily: "var(--font-Playfair)" }}>Our Expertise</h3>
+    <div
+      className="
+        bg-white/90 backdrop-blur-md rounded-xl p-6 sm:p-8 shadow-lg border border-slate-200
+        mb-6 sm:mb-0
+      "
+    >
+      <h3
+        className="text-xl sm:text-2xl font-bold text-slate-800 mb-4 sm:mb-6"
+        style={{ fontFamily: "var(--font-Playfair)" }}
+      >
+        Our Expertise
+      </h3>
 
-                            <div className="space-y-6">
-                                {expertise.map((item, index) => {
-                                    const Icon = item.icon;
-                                    return (
-                                        <div key={index} className="group">
-                                            <div className="flex items-center justify-between mb-2">
-                                                <div className="flex items-center gap-3">
-                                                    <div className="p-2 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg group-hover:scale-110 transition-transform">
-                                                        <Icon className="w-4 h-4 text-white" />
-                                                    </div>
-                                                    <span className="text-slate-700 font-medium text-sm sm:text-base">
-                                                        {item.name}
-                                                    </span>
-                                                </div>
-                                                <span className="text-slate-500 font-semibold text-sm">{item.percentage}%</span>
-                                            </div>
-
-                                            <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
-                                                <div
-                                                    className="h-full bg-gradient-to-r from-orange-500 via-orange-600 to-red-500 rounded-full transition-all duration-1000 ease-out"
-                                                    style={{
-                                                        width: `${item.percentage}%`,
-                                                        animation: `slideIn 1.5s ease-out ${index * 0.2}s backwards`,
-                                                    }}
-                                                ></div>
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    </div>
+      <div className="space-y-6">
+        {expertise.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <div key={index} className="group">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg group-hover:scale-110 transition-transform">
+                    <Icon className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-slate-700 font-medium text-sm sm:text-base">
+                    {item.name}
+                  </span>
                 </div>
+                <span className="text-slate-500 font-semibold text-sm">
+                  {item.percentage}%
+                </span>
+              </div>
+
+              <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-orange-500 via-orange-600 to-red-500 rounded-full transition-all duration-1000 ease-out"
+                  style={{
+                    width: `${item.percentage}%`,
+                    animation: `slideIn 1.5s ease-out ${index * 0.2}s backwards`,
+                  }}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</div>
 
                 <div
                     className="

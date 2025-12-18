@@ -28,7 +28,8 @@ function Home() {
     <Animation />
     <MarketingCollateral />
     <OurProject />
-    <PricingSec />
+    <div style={{marginTop:"-110px"}}><PricingSec /></div>
+    
     <TestimonialSec />
     <ReviewsStrip/>
   </div>;

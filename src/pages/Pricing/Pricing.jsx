@@ -19,7 +19,7 @@ function Pricing() {
      
       <PricingHero/>
      
-      <div className="mt-20 mb-20">
+      <div className="">
       <WhyChoose />
 </div>
 

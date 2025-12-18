@@ -44,7 +44,7 @@ function AboutUs() {
           <div
             className="
               relative
-              left-4 bottom-4
+              left-4 bottom-14
               sm:left-6 sm:bottom-6
               md:left-10 md:bottom-10
               lg:left-[120px] lg:bottom-[80px]

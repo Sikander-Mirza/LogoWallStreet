@@ -26,7 +26,7 @@ export default function ReviewsStrip() {
           </div>
 
           {/* Platforms */}
-          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
             <ReviewItem
               icon={<FaGoogle className="text-[#4285F4]" />}
               label="Google"
