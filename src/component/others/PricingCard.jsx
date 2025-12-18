@@ -2,9 +2,9 @@ import Button from "../button/Button";
 
 const PricingCard = ({ item, contactData, highlight }) => {
   const discount =
-    item.oldPrice && item.price
-      ? Math.round(((item.oldPrice - item.price) / item.oldPrice) * 100 || 0)
-      : 0;
+  item.oldPrice && item.price
+    ? Math.floor(((item.oldPrice - item.price) / item.oldPrice) * 100 || 0)
+    : 0;
 const handleOrderNow = async () => {
   try {
     // create a short human-readable description from first few features

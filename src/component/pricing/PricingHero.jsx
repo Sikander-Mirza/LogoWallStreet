@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const PricingShowcase = () => {
   return (
     <section id="pricing-bottom" className="relative overflow-hidden bg-[#351fb5] text-white" style={{marginTop:"-80px"}}>
@@ -139,25 +139,27 @@ const PricingShowcase = () => {
 
           {/* CTA + phone */}
           <div className="mt-4 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-            <button
-              type="button"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold uppercase tracking-wide text-[#020b3a] shadow-lg shadow-slate-900/40 transition hover:-translate-y-0.5 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-[#020b3a]"
-            >
-              <span>Get a Free Strategy Call</span>
-              <svg
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="1.8"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M5 12h14m0 0l-4-4m4 4l-4 4"
-                />
-              </svg>
-            </button>
+            <Link to="/contact-us">
+  <button
+    type="button"
+    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold uppercase tracking-wide text-[#020b3a] shadow-lg shadow-slate-900/40 transition hover:-translate-y-0.5 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-[#020b3a]"
+  >
+    <span>Get a Free Strategy Call</span>
+    <svg
+      className="h-4 w-4"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M5 12h14m0 0l-4-4m4 4l-4 4"
+      />
+    </svg>
+  </button>
+</Link>
 
             <div className="flex items-center gap-4">
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-500/20 text-orange-300">

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ChevronRight, PhoneCall, Sparkles } from "lucide-react";
-
+import { Link } from "react-router-dom";
 export default function ShowCase() {
   return (
     <section className="relative overflow-hidden bg-[#07123b] text-white py-16 md:py-20">
@@ -110,6 +110,7 @@ export default function ShowCase() {
 
             {/* CTA + phone */}
             <div className="pt-3 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <Link to="/contact-us">
               <button
                 type="button"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-orange-500/40 hover:from-orange-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-[#07123b]"
@@ -119,7 +120,7 @@ export default function ShowCase() {
                 <span>Get Started</span>
                 <ChevronRight className="h-4 w-4" />
               </button>
-
+</Link>
               <div className="flex items-center gap-3 text-sm">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-500/15 text-orange-300">
                   <PhoneCall className="h-5 w-5" />

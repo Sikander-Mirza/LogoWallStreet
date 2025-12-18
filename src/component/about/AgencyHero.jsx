@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { TrendingUp, Target, Lightbulb } from 'lucide-react';
 import aboutus from "../../assets/images/about-us-3rd-image.jpg"
 import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
@@ -282,6 +283,7 @@ export default function AgencyHero() {
                         </div>
 
                         {/* Button */}
+                        <Link to="/portfolio">
                         <button className="group mt-10 sm:mt-14 relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-full overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                             <span className="relative z-10 flex items-center gap-2 text-sm sm:text-base">
                                 VIEW PROJECTS
@@ -291,6 +293,7 @@ export default function AgencyHero() {
                             </span>
                             <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </button>
+                        </Link>
                     </div>
                 </div>
             </div>

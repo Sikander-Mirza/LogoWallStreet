@@ -53,23 +53,31 @@ export default function CtaPerfectLogo() {
           </Link>
           
           {/* Secondary CTA – outline button */}
+          
           <button
-            type="button"
-            className="
-              inline-flex items-center justify-center
-              rounded-full px-8 sm:px-10 py-3 sm:py-3.5
-              text-sm sm:text-base font-semibold
-              border border-slate-500/70
-              text-slate-100
-              bg-transparent
-              hover:bg-white/5 hover:border-slate-300
-              transition-colors duration-200
-              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-300 focus:ring-offset-transparent
-            "
-            style={{ fontFamily: "var(--font-Poppins)" }}
-          >
-            View on Trustpilot
-          </button>
+  type="button"
+  onClick={() =>
+    window.open(
+      "https://www.trustpilot.com/review/thelogowallstreet.com",
+      "_blank",
+      "noopener,noreferrer"
+    )
+  }
+  className="
+    inline-flex items-center justify-center
+    rounded-full px-8 sm:px-10 py-3 sm:py-3.5
+    text-sm sm:text-base font-semibold
+    border border-slate-500/70
+    text-slate-100
+    bg-transparent
+    hover:bg-white/5 hover:border-slate-300
+    transition-colors duration-200
+    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-300 focus:ring-offset-transparent
+  "
+  style={{ fontFamily: 'var(--font-Poppins)' }}
+>
+  View on Trustpilot
+</button>
         </div>
       </div>
     </section>
