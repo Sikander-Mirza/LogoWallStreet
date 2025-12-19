@@ -35,7 +35,7 @@ export default function CtaPerfectLogo() {
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
           {/* Primary CTA with orange glow */}
 
-          <Link
+             <Link
             to="/contact-us"
             className="
               relative inline-flex items-center justify-center
