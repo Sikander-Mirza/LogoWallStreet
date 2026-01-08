@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ChevronRight, PhoneCall, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+
 export default function ShowCase() {
   return (
     <section className="relative overflow-hidden bg-[#07123b] text-white py-16 md:py-20">
